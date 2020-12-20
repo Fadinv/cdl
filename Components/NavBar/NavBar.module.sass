@@ -1,0 +1,102 @@
+@use '/styles/library'
+
+.NavBar
+  font-size: 1rem
+  display: flex
+  justify-content: space-between
+  background-color: library.$color_honeydew
+
+
+.Menu
+  font-size: 1.5em
+  font-family: 'Montserrat', Roboto, serif
+  font-weight: 400
+  margin: .5em .5em
+  color: #fff
+  border-radius: .25em
+  padding: .5em 1em
+  line-height: 1
+  box-shadow: .05em .05em .05em .05em rgba(15, 15, 15, .25)
+  background-color: library.$color_main-grey
+
+.UserBar
+  display: flex
+  height: auto
+
+.Help
+  font-family: 'Montserrat', Roboto, serif
+  font-weight: 400
+  font-size: 1em
+  position: relative
+  background-color: unset
+  height: 100%
+  padding: 0 1em
+
+  &:hover
+    .hoverLine
+      width: 100%
+
+.Cart
+  font-family: 'Montserrat', Roboto, serif
+  display: flex
+  align-items: center
+  font-weight: 400
+  font-size: 1em
+  height: 100%
+  background-color: library.$color_main-grey
+  color: #fff
+  padding: 0 1em
+
+  &:hover
+    background-color: library.$color_imperial-red
+
+    .CartNumber
+      background-color: library.$color_main-grey-without-opacity
+
+
+.CartBox
+  position: relative
+  display: flex
+  align-items: center
+
+.CartNumber
+  font-size: 1em
+  background-color: library.$color_imperial-red
+  border-radius: 50%
+  padding: .25em .25em
+  position: absolute
+  left: 42%
+  top: -42%
+  margin: auto
+  transition: all .3s ease-out
+
+  &:hover
+    background-color: library.$color_main-grey
+
+.CartImage
+  margin-left: 1em
+  width: 2em
+  height: 2em
+
+.User
+  font-family: 'Montserrat', serif
+  font-weight: 400
+  font-size: 1em
+  position: relative
+  background-color: unset
+  height: 100%
+  padding: 0 1em
+
+  &:hover
+    .hoverLine
+      width: 100%
+
+
+.hoverLine
+  position: absolute
+  height: .5em
+  background-color: library.$color_main-grey
+  top: calc(100% - .5em)
+  left: 0
+  width: 0
+  transition: all .3s ease-out

@@ -1,0 +1,49 @@
+@use 'styles/library'
+
+.ProductItem
+  background-color: #e7e7e7
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  padding: 1em 1em
+
+.TextStuck
+  margin-top: .5em
+
+.TextStuck > * + *
+  margin-top: .5em
+
+.Title
+  font-size: 1rem
+  font-family: 'Montserrat', Roboto, serif
+  font-weight: 400
+
+.Price
+  font-size: 1rem
+  font-family: 'Montserrat', Roboto, serif
+  font-weight: 400
+
+.StuckButtons
+  display: flex
+  flex-direction: column
+  margin-top: .5em
+
+.StuckButtons > *
+  padding: .5em 0
+  border-radius: .15em
+
+.StuckButtons > * + *
+  margin-top: .5em
+
+.AddCartBtn
+  background-color: unset
+  color: library.$color_main-grey
+
+  &:hover
+    background-color: library.$color_imperial-red
+
+.BuyBtn
+  background-color: library.$color_main-grey-without-opacity
+  color: white
+  &:hover
+    background-color: library.$color_imperial-red
