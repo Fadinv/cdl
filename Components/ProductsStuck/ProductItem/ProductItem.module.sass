@@ -1,14 +1,36 @@
 @use 'styles/library'
 
 .ProductItem
-  background-color: #e7e7e7
+  background-color: library.$color_honeydew
+  cursor: pointer
+  width: 100%
   display: flex
-  justify-content: space-between
   flex-direction: column
-  padding: 1em 1em
+  justify-content: space-between
+
+.ImageBox
+  padding: 1em
+  box-sizing: border-box
+  font-size: 1rem
+  display: flex
+  max-width: 100%
+  border-radius: .25em
+  max-height: 24.9vw
+
+.HiddenBox
+  background-color: library.$color_honeydew
+
+.ProductImage
+  box-sizing: border-box
+  font-size: 1rem
+  display: block
+  width: 100%
+  box-shadow: .1em .1em .1em .05em rgba(65, 65, 65, .7)
+  border-radius: .25em
+  object-fit: cover
 
 .TextStuck
-  margin-top: .5em
+  padding: 0 1em
 
 .TextStuck > * + *
   margin-top: .5em
@@ -19,24 +41,25 @@
   font-weight: 400
 
 .Price
+  width: 100%
   font-size: 1rem
   font-family: 'Montserrat', Roboto, serif
+  font-style: italic
   font-weight: 400
 
 .StuckButtons
+  width: 100%
   display: flex
   flex-direction: column
-  margin-top: .5em
+  margin-bottom: 0
 
 .StuckButtons > *
   padding: .5em 0
-  border-radius: .15em
 
 .StuckButtons > * + *
-  margin-top: .5em
 
 .AddCartBtn
-  background-color: unset
+  background-color: library.$color_honeydew
   color: library.$color_main-grey
 
   &:hover
@@ -45,5 +68,6 @@
 .BuyBtn
   background-color: library.$color_main-grey-without-opacity
   color: white
+
   &:hover
     background-color: library.$color_imperial-red

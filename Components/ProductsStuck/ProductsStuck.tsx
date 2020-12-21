@@ -13,54 +13,51 @@ const ProductsStuck: React.FC<ProductsStuckProps> = () => {
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/1-min.jpg'}/>
+                src={'/stuff/1-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/2-min.jpg'}/>
+                src={'/stuff/2-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/3-min.jpg'}/>
+                src={'/stuff/3-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/4-min.jpg'}/>
-
-
+                src={'/stuff/4-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая'}
                 price={1900}
-                src={'/stuff/5-min.jpg'}/>
-
+                src={'/stuff/5-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/6-min.jpg'}/>
+                src={'/stuff/6-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/7-min.jpg'}/>
+                src={'/stuff/7-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/8-min.jpg'}/>
+                src={'/stuff/8-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/9-min.jpg'}/>
+                src={'/stuff/9-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/10-min.jpg'}/>
+                src={'/stuff/10-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/11-min.jpg'}/>
+                src={'/stuff/11-500x500.jpg'}/>
             <ProductItem
                 title={'Майка такая-то туда-сюда блаблабла'}
                 price={1900}
-                src={'/stuff/12-min.jpg'}/>
+                src={'/stuff/12-500x500.jpg'}/>
         </div>
     )
 }

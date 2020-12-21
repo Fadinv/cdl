@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './ProductItem.module.sass'
-import Image from 'next/image'
 
 interface ProductItemProps {
     src: string
@@ -17,25 +16,24 @@ const ProductItem: React.FC<ProductItemProps> =
 
         return (
             <div className={styles.ProductItem}>
-                <div className={styles.ProductContainer}>
-                    <Image
-                        src={src}
-                        alt={''}
-                        width={3080}
-                        height={3080}
-                    />
-                    {/*<img src={src} alt={''} />*/}
+
+                <div className={styles.ImageBox}>
+                    <img className={styles.ProductImage} src={src} alt={''}/>
+                </div>
+
+                <div className={styles.HiddenBox}>
 
                     <div className={styles.TextStuck}>
                         <p className={styles.Title}>{title}</p>
                         <p className={styles.Price}>{price}р</p>
                     </div>
+
+                    <div className={styles.StuckButtons}>
+                        <button className={styles.AddCartBtn}>Добавить в корзину</button>
+                        <button className={styles.BuyBtn}>Купить</button>
+                    </div>
                 </div>
 
-                <div className={styles.StuckButtons}>
-                    <button className={styles.AddCartBtn}>Добавить в корзину</button>
-                    <button className={styles.BuyBtn}>Купить</button>
-                </div>
             </div>
         )
     }

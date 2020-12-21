@@ -34,7 +34,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     <div className={styles.CartBox}>
                         <span className={styles.CartNumber}>99</span>
                         <img className={styles.CartImage}
-                             src='../..//public/shopping-cart-25.png'
+                             src='/shopping-cart-25.png'
                              srcSet={'/shopping-cart-50.png 2x, /shopping-cart-100.png 4x'}
                              alt=''/>
                     </div>

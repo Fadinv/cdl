@@ -8,7 +8,23 @@ interface ProductPaginationProps {
 const ProductPagination: React.FC<ProductPaginationProps> = () => {
     return (
         <div className={styles.ProductPagination}>
-            pagination
+
+            <ul className={styles.PaginationStuckNumber}>
+                <li>
+                    <button className={styles.PaginationNumberButton + ' ' + styles.NumberButtonActive}>1</button>
+                </li>
+                <li>
+                    <button className={styles.PaginationNumberButton}>2</button>
+                </li>
+                <li>
+                    <button  className={styles.PaginationNumberButton}>3</button>
+                </li>
+            </ul>
+            <div className={styles.StuckButtons}>
+                <button className={styles.BackButton}>Назад</button>
+                <button className={styles.NexButton}>Вперед</button>
+            </div>
+
         </div>
     )
 }
