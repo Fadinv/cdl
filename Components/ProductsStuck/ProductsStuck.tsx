@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ProductsStuck.module.sass'
+import styles from './ProductsStuck.module.css'
 import ProductItem from './ProductItem/ProductItem'
 import {data} from '../../data/__product__'
 
