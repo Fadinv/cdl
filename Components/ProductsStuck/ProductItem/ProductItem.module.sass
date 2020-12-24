@@ -1,39 +1,151 @@
 @use 'styles/library'
 
 .ProductItem
-  cursor: pointer
   position: relative
   width: 100%
   display: flex
   flex-direction: column
   justify-content: space-between
+  border-radius: .5em
+  padding-top: 1em
+  transition: all .3s ease-out
   background-color: rgba(13, 13, 13, 0)
 
-  //&:hover
-  //  .OpacityBox
-  //    transition: opacity .3s ease-out
-  //    z-index: 10
-  //    opacity: 1
-  //    top: 55%
+  &:hover
+    background-color: rgba(13, 13, 13, .5)
 
+    .SizesStuck
+      opacity: 1
+
+    .ProductImage
+      width: 80%
+
+    .WatchButton
+      opacity: 1
+      z-index: 15
+
+.HeightWrapperImageBox
+  position: relative
+  width: 100%
+  height: 100%
 
 .ImageBox
   //padding: 1em
+  height: auto
+  width: 100%
   box-sizing: border-box
+  position: relative
   //z-index: 5
+  transition: width .3s ease-out
   font-size: 1rem
   display: flex
   max-width: 100%
   border-radius: .25em
 
 
-.OpacityBox
-  height: 100%
-  max-width: 100%
-  min-width: 100%
+.ProductImage
+  position: relative
+  transition: all .3s ease-out
+  box-sizing: border-box
+  font-size: 1rem
+  display: block
+  width: 100%
+  border-radius: .25em
+  object-fit: cover
+
+.Like
+  position: absolute
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-justify: auto
+  line-height: .1
+  color: white
+  justify-content: center
+  font-size: 2rem
+  margin: auto
+  width: 2rem
+  height: 2rem
+  top: .75em
+  left: .75em
+  cursor: pointer
+  background-color: library.$color_main-grey
+  transition: all .2s ease-out
+  border: .1em solid white
+  border-radius: 50%
+  &:hover
+    box-shadow: 0 0 0 0.1em library.$color_main-grey
+
+.Liked
+  border-color: library.$color_honeydew
+  color: library.$color_honeydew
+  background-color: library.$color_imperial-red
+  &:hover
+    box-shadow: 0 0 0 0.1em library.$color_imperial-red
+
+.SizesStuck
+  max-height: 80%
   display: flex
   flex-direction: column
   justify-content: space-between
+  position: absolute
+  color: white
+  left: 80%
+  top: 0
+  width: 20%
+  text-align: center
+  opacity: 0
+  transition: opacity .3s ease-out
+  margin-top: .5em
+
+.SizesStuck > * + *
+  margin-top: .5em
+
+.SizeStuckBtnItem
+  cursor: pointer
+  font-family: 'Montserrat', serif
+  font-size: 1.2rem
+  padding: 0
+  color: library.$color_powderblue
+  width: 2em
+  height: 2em
+  line-height: 1
+  display: flex
+  flex-direction: column
+  align-content: center
+  align-items: center
+  text-align: center
+  justify-content: center
+  background-color: rgba(240, 240, 240, .2)
+  border-radius: .25em
+
+  &:hover
+    text-decoration: underline
+    background-color: rgba(240, 240, 240, .5)
+
+.SizeDisabled
+  color: rgba(240, 240, 240, .3)
+  background-color: #840000
+  cursor: not-allowed
+
+  &:hover
+    text-decoration: none
+    background-color: #840000
+
+.SizeActive
+  color: white
+  background-color: #00843d
+
+  &:hover
+    background-color: #00843d
+
+.OpacityBox
+  max-width: 100%
+  min-width: 100%
+  display: flex
+  margin-top: .5em
+  flex-direction: column
+  justify-content: flex-end
   //z-index: 0
   //position: absolute
   //background-color: rgba(13, 13, 13, .9)
@@ -44,15 +156,6 @@
   top: 50%
   transition: all .3s ease-out
 
-.ProductImage
-  box-sizing: border-box
-  padding: 1em
-  font-size: 1rem
-  display: block
-  width: 100%
-  border-radius: .25em
-  object-fit: cover
-
 .TextStuck
   color: white
   padding: 0 1em
@@ -61,6 +164,12 @@
   margin-top: .5em
 
 .Title
+  padding-bottom: 1em
+  position: relative
+  top: 0
+  //height: 0
+  //overflow: hidden
+  word-break: break-word
   font-size: 1rem
   font-family: 'Montserrat', Roboto, serif
   font-weight: 400
@@ -79,12 +188,13 @@
   margin-bottom: 0
 
 .StuckButtons > *
-  margin-top: .5em
+  font-size: 1rem
+  margin-top: 1.55em
   padding: .5em .5em
   border-radius: .25em
 
 .StuckButtons > * + *
-  margin-top: .25em
+  margin-top: .5em
 
 .AddCartBtn
   background-color: rgba(0, 0, 0, 0)
@@ -101,7 +211,18 @@
     background-color: library.$color_imperial-red
 
 .WatchButton
-  background-color: rgba(0, 0, 0, 0)
+  z-index: -1
+  width: calc(100% - 2em)
+  font-size: 1rem
+  text-align: left
+  position: absolute
+  text-decoration: underline
+  top: 90%
+  opacity: 0
+  border-radius: .25em
+  left: 1em
+  padding: .5em 1em
+  background-color: library.$color_prussianblue
   color: library.$color_powderblue
 
   &:hover
