@@ -8,10 +8,17 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = () => {
     return (
         <nav className={styles.NavBar}>
+            <div className={styles.Flex}>
 
-            <button className={styles.Menu}>
-                &#9776; Menu
-            </button>
+                <button className={styles.Menu}>
+                    &#9776;
+                </button>
+
+                <span className={styles.CompanyName}>
+                    consoledotlook
+                </span>
+
+            </div>
 
             <div className={styles.UserBar}>
 

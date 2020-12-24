@@ -6,6 +6,7 @@ import ProductNav from '../Components/ProductNav/ProductNav'
 import ProductsStuck from '../Components/ProductsStuck/ProductsStuck'
 import ProductPagination from '../Components/ProductPagination/ProductPagination'
 import Footer from '../Components/Footer/Footer'
+import IndexWrapper from '../Components/IndexWrapper/IndexWrapper'
 
 export default function Home() {
     return (
@@ -17,12 +18,16 @@ export default function Home() {
 
             <NavBar/>
 
-            <ProductNav/>
+            <IndexWrapper>
 
-            <ProductsStuck/>
+                <ProductNav/>
 
-            <ProductPagination/>
+                <ProductsStuck/>
 
+                <ProductPagination/>
+
+
+            </IndexWrapper>
             <Footer/>
 
         </div>

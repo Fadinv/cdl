@@ -1,35 +1,60 @@
 @use 'styles/library'
 
 .ProductItem
-  background-color: library.$color_honeydew
   cursor: pointer
+  position: relative
   width: 100%
   display: flex
   flex-direction: column
   justify-content: space-between
+  background-color: rgba(13, 13, 13, 0)
+
+  //&:hover
+  //  .OpacityBox
+  //    transition: opacity .3s ease-out
+  //    z-index: 10
+  //    opacity: 1
+  //    top: 55%
+
 
 .ImageBox
-  padding: 1em
+  //padding: 1em
   box-sizing: border-box
+  //z-index: 5
   font-size: 1rem
   display: flex
   max-width: 100%
   border-radius: .25em
-  max-height: 24.9vw
 
-.HiddenBox
-  background-color: library.$color_honeydew
+
+.OpacityBox
+  height: 100%
+  max-width: 100%
+  min-width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  //z-index: 0
+  //position: absolute
+  //background-color: rgba(13, 13, 13, .9)
+  padding: 1em
+  border-radius: .25em
+  //opacity: 0
+  left: 0
+  top: 50%
+  transition: all .3s ease-out
 
 .ProductImage
   box-sizing: border-box
+  padding: 1em
   font-size: 1rem
   display: block
   width: 100%
-  box-shadow: .1em .1em .1em .05em rgba(65, 65, 65, .7)
   border-radius: .25em
   object-fit: cover
 
 .TextStuck
+  color: white
   padding: 0 1em
 
 .TextStuck > * + *
@@ -54,20 +79,30 @@
   margin-bottom: 0
 
 .StuckButtons > *
-  padding: .5em 0
+  margin-top: .5em
+  padding: .5em .5em
+  border-radius: .25em
 
 .StuckButtons > * + *
+  margin-top: .25em
 
 .AddCartBtn
-  background-color: library.$color_honeydew
-  color: library.$color_main-grey
+  background-color: rgba(0, 0, 0, 0)
+  color: library.$color_powderblue
 
   &:hover
-    background-color: library.$color_imperial-red
+    background-color: rgba(240, 240, 240, .15)
 
 .BuyBtn
-  background-color: library.$color_main-grey-without-opacity
+  background-color: library.$color_imperial-red
   color: white
 
   &:hover
     background-color: library.$color_imperial-red
+
+.WatchButton
+  background-color: rgba(0, 0, 0, 0)
+  color: library.$color_powderblue
+
+  &:hover
+    background-color: rgba(240, 240, 240, .15)

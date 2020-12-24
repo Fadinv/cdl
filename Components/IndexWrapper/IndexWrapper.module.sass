@@ -1,0 +1,31 @@
+@use 'styles/library'
+
+.IndexWrapper
+  position: relative
+  border-top: 1px solid library.$color_black
+  width: 100%
+
+.FlexRow
+  position: relative
+  display: flex
+  z-index: 10
+  flex-direction: row
+  width: 100%
+
+.LeftLineBackground
+  position: absolute
+  z-index: 0
+  left: 0
+  top: 0
+  width: 11.11vw
+  height: 100%
+  background-color: library.$color_imperial-red
+
+.BackSideBackground
+  position: absolute
+  z-index: -1
+  left: 77.77%
+  top: 0
+  width: 11.11vw
+  height: 100%
+  background-color: library.$color_imperial-red

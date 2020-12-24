@@ -2,19 +2,20 @@
 
 .ProductNav
   display: flex
+  flex-direction: row
   justify-content: center
-  border-top: .1em solid library.$color_main-grey
-  border-bottom: .1em solid library.$color_main-grey
   width: 100%
-  background-color: library.$color_main-grey
+  background-color: rgb(20,20,23)
 
 .ref
   font-family: 'Montserrat', Roboto, serif
-
-  background-color: library.$color_main-grey-without-opacity
-  color: #fff
-  padding: 1.5em 1em
+  font-weight: 400
+  color: library.$color_honeydew
+  background-color: inherit
+  text-align: left
+  font-size: 1rem
   transition: all .3s ease-out
+  padding: 1.5em 2em
 
   &:hover
-    background-color: library.$color_imperial-red
+    background-color: library.$color_main-grey-without-opacity

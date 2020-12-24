@@ -2,7 +2,18 @@
 
 .ProductsStuck
   font-size: 1rem
+  padding: .5em 2em
   display: grid
   grid-template-columns: 1fr 1fr 1fr 1fr
   grid-template-rows: 1fr 1fr 1fr
-  grid-gap: .15vw
+  grid-gap: .3vw
+
+@media (max-width: 56em)
+  .ProductsStuck
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr 1fr 1fr 1fr
+
+@media (max-width: 56em)
+  .ProductsStuck
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
