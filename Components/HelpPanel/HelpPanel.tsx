@@ -5,8 +5,6 @@ interface HelpPanelProps {
 
 }
 
-type variantSortStateType = 0 | 'up'
-
 const HelpPanel: React.FC<HelpPanelProps> = () => {
 
     const [numberVariantSortState, setNumberVariantSortState] = useState<number>(null)
@@ -94,13 +92,9 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
                         return <li data-key={key} onClick={liClickHandler} className={classesVariantSort.join(' ')}
                                    key={key}>
                             <span>{variant}</span>
-                            <span className={classesArrow.join(' ')}>&#129047;</span>
+                            <span className={classesArrow.join(' ')}>&#11167;</span>
                         </li>
-
                     })}
-                    {/*<li className={styles.VariantSort}>цене &#129047;</li>*/}
-                    {/*<li className={styles.VariantSort}>рейтингу &#129047;</li>*/}
-                    {/*<li className={styles.VariantSort}>обновлению &#129047;</li>*/}
                 </ul>
             </div>
         </div>
