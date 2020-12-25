@@ -17,6 +17,10 @@ const IndexWrapper: React.FC<IndexWrapperProps> = ({children}) => {
 
             </div>
 
+            {/*<div className={styles.MiddleBackSideBackground}>*/}
+            {/**/}
+            {/*</div>*/}
+
             <div className={styles.BackSideBackground}>
 
             </div>

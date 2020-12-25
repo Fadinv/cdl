@@ -6,9 +6,25 @@
     font-size: 1rem;
     padding: .5em 2em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-gap: .3vw;
+}
+
+@media (max-width: 140em) {
+    .ProductsStuck {
+        max-width: 1600px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 100em) {
+    .ProductsStuck {
+        max-width: 1200px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }
 
 @media (max-width: 65em) {

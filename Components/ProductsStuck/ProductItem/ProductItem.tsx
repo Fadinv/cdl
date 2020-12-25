@@ -61,6 +61,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
                             } else if (sizeState === btn) {
                                 classesBtn.push(styles.SizeActive)
                             }
+
                             return <button onClick={sizeClkHandler} key={key} data-set={btn}
                                            className={classesBtn.join(' ')}>
                                 {btn}
@@ -71,12 +72,12 @@ const ProductItem: React.FC<ProductItemProps> = ({
             </div>
 
             <span onClick={likeHandler} className={likeClasses.join(' ')}>
-                        &#9825;
+                &#9825;
             </span>
 
             <div className={styles.OpacityBox}>
                 <div className={styles.TextStuck}>
-                    <p>Майка</p>
+                    <p className={styles.ProductCathegory}>Майка</p>
                     <p className={styles.Title}>
                         {title}
                     </p>

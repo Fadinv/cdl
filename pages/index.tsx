@@ -18,15 +18,12 @@ export default function Home() {
 
             <NavBar/>
 
+            <ProductNav/>
+
             <IndexWrapper>
-
-                <ProductNav/>
-
                 <ProductsStuck/>
 
                 <ProductPagination/>
-
-
             </IndexWrapper>
             <Footer/>
 

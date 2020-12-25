@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap')
 
 html, body
-  font-size: calc(.4em + .6vw)
+  font-size: calc(.3em + .3vw)
   background-color: rgba(20, 20, 23, .85)
   padding: 0
   box-sizing: border-box
@@ -32,3 +32,19 @@ button
 
   &:focus
     outline: none
+
+@media (max-width: 125em)
+  html, body
+    font-size: calc(.3em + .35vw)
+
+@media (max-width: 100em)
+  html, body
+    font-size: calc(.4em + .5vw)
+
+@media (max-width: 65em)
+  html, body
+    font-size: calc(.45em + .55vw)
+
+@media (max-width: 42em)
+  html, body
+    font-size: calc(.5em + .6vw)

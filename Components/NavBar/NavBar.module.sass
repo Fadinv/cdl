@@ -2,6 +2,7 @@
 
 .NavBar
   color: library.$color_honeydew
+  z-index: 15
   font-size: 1rem
   display: flex
   justify-content: space-between
@@ -10,6 +11,9 @@
   display: flex
 
 .CompanyName
+  margin-left: 1em
+  font-size: 1.4rem
+  font-weight: bold
   display: flex
   flex-direction: column
   justify-content: center
@@ -18,13 +22,12 @@
   font-size: 1.5em
   font-family: 'Montserrat', Roboto, serif
   font-weight: 400
-  margin: .5em .5em
+  margin: .5em 2em
   color: library.$color_honeydew
   border-radius: .25em
   padding: .5em 1em
   line-height: 1
-  box-shadow: .05em .05em .05em .05em rgba(15, 15, 15, .25)
-  background-color: library.$color_main-grey-without-opacity
+  background-color: library.$color_imperial-red
 
 .UserBar
   display: flex
@@ -68,15 +71,16 @@
   position: relative
   display: flex
   align-items: center
-  margin-left: .5em
+  margin: 1.2em .5em
 
 .CartNumber
-  font-size: 1em
+  font-size: .8rem
   background-color: library.$color_imperial-red
+  position: absolute
   border-radius: 50%
   padding: .5em .5em
-  left: 42%
-  top: -42%
+  left: 0
+  top: -1em
   margin: auto
   transition: all .3s ease-out
 
@@ -84,9 +88,9 @@
     background-color: library.$color_main-grey
 
 .CartImage
-  margin-left: .15em
-  width: 2em
-  height: 2em
+  margin-left: .5em
+  width: 2.6em
+  height: 2.6em
 
 .User
   background: rgba(20, 20, 23, .85)
@@ -111,3 +115,16 @@
   left: 0
   width: 0
   transition: all .3s ease-out
+
+@media (max-width: 140em)
+
+@media (max-width: 100em)
+
+@media (max-width: 65em)
+
+@media (max-width: 42em)
+  .Help
+    display: none
+
+  .User
+    display: none

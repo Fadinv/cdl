@@ -8,17 +8,15 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = () => {
     return (
         <nav className={styles.NavBar}>
-            <div className={styles.Flex}>
+            <span className={styles.CompanyName}>
+                consoledotlook
+            </span>
 
-                <button className={styles.Menu}>
-                    &#9776;
-                </button>
-
-                <span className={styles.CompanyName}>
-                    consoledotlook
-                </span>
-
-            </div>
+            {/*<div className={styles.Flex}>*/}
+            {/*    <button className={styles.Menu}>*/}
+            {/*        &#9776;*/}
+            {/*    </button>*/}
+            {/*</div>*/}
 
             <div className={styles.UserBar}>
 
@@ -37,12 +35,11 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </button>
 
                 <button className={styles.Cart}>
-                    Моя корзина
+                    <p className={styles.MyCartText}>Моя корзина</p>
                     <div className={styles.CartBox}>
                         <span className={styles.CartNumber}>99</span>
                         <img className={styles.CartImage}
-                             src='/shopping-cart-25.png'
-                             srcSet={'/shopping-cart-50.png 2x, /shopping-cart-100.png 4x'}
+                             src='/cart.svg'
                              alt=''/>
                     </div>
                 </button>
