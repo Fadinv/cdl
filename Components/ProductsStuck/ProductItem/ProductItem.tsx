@@ -37,17 +37,18 @@ const ProductItem: React.FC<ProductItemProps> = ({
     }
 
     const clickHandler = (e) => {
-
+        e.preventDefault()
+        console.log(e.type)
     }
 
     const sizesBtn: sizeArrayType = ['xs', 's', 'm', 'l', 'xl', 'xxl']
 
     return (
-        <div onClick={clickHandler} className={styles.ProductItem}>
+        <div className={styles.ProductItem}>
 
 
             <div className={styles.HeightWrapperImageBox}>
-                <div className={styles.ImageBox}>
+                <div onClick={clickHandler} className={styles.ImageBox}>
                     <img className={styles.ProductImage} src={src} alt={''}/>
                 </div>
 

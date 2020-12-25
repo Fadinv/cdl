@@ -2,10 +2,11 @@ import React, {useState} from 'react'
 import styles from './ProductNav.module.sass'
 
 interface ProductNavProps {
-
+    menuTogglePanelState: boolean
+    setMenuTogglePanelState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ProductNav: React.FC<ProductNavProps> = () => {
+const ProductNav: React.FC<ProductNavProps> = ({menuTogglePanelState, setMenuTogglePanelState}) => {
 
     const [pathState, setPathState] = useState<number>(0)
 
@@ -18,20 +19,31 @@ const ProductNav: React.FC<ProductNavProps> = () => {
         setPathState(key)
     }
 
+    const menuTogglePanelHandler = (e) => {
+        setMenuTogglePanelState(prev => !prev)
+    }
+
     return (
         <div className={styles.ProductNav}>
-            <button className={styles.Menu}>
+            <button onClick={menuTogglePanelHandler} className={styles.Menu}>
                 &#9776;
             </button>
+
             <div className={styles.WrapperPathBtn}>
-            {pathArray.map((btn, key) => {
-                const classesBtn = [styles.Path]
-                if (key === pathState) {
-                    classesBtn.push(styles.PathActive)
-                }
-                return <button data-set={key} onClick={buttonClickHandler} className={classesBtn.join(' ')}
-                               key={key}>{btn}</button>
-            })}
+                {pathArray.map((btn, key) => {
+                    const classesBtn = [styles.Path]
+                    if (key === pathState) {
+                        classesBtn.push(styles.PathActive)
+                    }
+                    return (
+                        <button data-set={key}
+                                onClick={buttonClickHandler}
+                                className={classesBtn.join(' ')}
+                                key={key}
+                        >
+                            {btn}
+                        </button>)
+                })}
             </div>
         </div>
     )

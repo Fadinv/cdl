@@ -2,6 +2,9 @@
 
 .ProductNav
   position: relative
+  position: sticky
+  top: 0
+  left: 0
   display: flex
   flex-direction: row
   z-index: 15
@@ -41,7 +44,7 @@
   font-size: 1em
   font-family: 'Montserrat', Roboto, serif
   font-weight: 400
-  color: library.$color_honeydew
+  color: white
   border-radius: .25em
   padding: 0 1em
   line-height: 1
@@ -49,7 +52,6 @@
 
 @media (max-width: 42em)
   .ProductNav
-    position: static
     justify-content: space-between
     padding: 0 1em
 

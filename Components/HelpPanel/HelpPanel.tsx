@@ -7,10 +7,10 @@ interface HelpPanelProps {
 
 const HelpPanel: React.FC<HelpPanelProps> = () => {
 
+    const variantsSortArray = ['цене', 'рейтингу', 'обновлению']
+
     const [numberVariantSortState, setNumberVariantSortState] = useState<number>(null)
     const [reversSortState, setReversSortState] = useState<boolean>(false)
-
-    const variantsSortArray = ['цене', 'рейтингу', 'обновлению']
 
     const stuckListRef = useRef<HTMLUListElement>(null)
     const togglePanelRef = useRef<HTMLDivElement>(null)
@@ -18,10 +18,10 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
 
     const liClickHandler = (e) => {
         e.preventDefault()
+        if (!e.target.parentNode) return
+
         const key = +e.target.dataset.key || +e.target.parentNode.dataset.key
         if (key === numberVariantSortState) {
-            console.log('вошли')
-            console.log(reversSortState)
             setReversSortState(prevState => !prevState)
             return
         }
@@ -43,13 +43,13 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
         if (t === div || t.parentNode === div) {
             return
         }
-
+        console.log('Нашел ошибку', !t.parentNode, !t.parentNode.parentNode)
         if (t === ul || t.parentNode === ul || t.parentNode.parentNode === ul) {
             return
         }
-
         ul.classList.remove(styles.Open)
         div.classList.remove(styles.TogglePanelIsOpen)
+        window.removeEventListener('click', globSortBarClickHandler)
     }
 
     const sortBarClickHandler = (e) => {

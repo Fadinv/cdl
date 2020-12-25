@@ -12,14 +12,9 @@ const NavBar: React.FC<NavBarProps> = () => {
             <div className={styles.LogoBox}>
                 <img className={styles.LogoImage} src={'/cdl__logo.svg'} alt={''}/>
                 <span className={styles.CompanyName}>
-                consoledotlook
-            </span>
+                    consoledotlook
+                </span>
             </div>
-            {/*<div className={styles.Flex}>*/}
-            {/*    <button className={styles.Menu}>*/}
-            {/*        &#9776;*/}
-            {/*    </button>*/}
-            {/*</div>*/}
 
             <div className={styles.UserBar}>
 
