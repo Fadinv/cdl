@@ -13,7 +13,6 @@ const ProductPagination: React.FC<ProductPaginationProps> = () => {
 
     const paginationButtonClickHandler = (e) => {
         const changeTo = e.target.dataset.changeTo
-        console.log(changeTo)
 
         switch (changeTo) {
             case 'prev':
@@ -24,7 +23,8 @@ const ProductPagination: React.FC<ProductPaginationProps> = () => {
                 if (paginationState === paginationArray.length) return
                 setPaginationState(prev => ++prev)
                 break
-            default: return
+            default:
+                return
         }
     }
 
@@ -52,20 +52,14 @@ const ProductPagination: React.FC<ProductPaginationProps> = () => {
                                 className={classesBtn.join(' ')}>{page}</button>
                     </li>
                 })}
-
-                {/*<li>*/}
-                {/*    <button className={styles.PaginationNumberButton + ' ' + styles.NumberButtonActive}>1</button>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <button className={styles.PaginationNumberButton}>2</button>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <button  className={styles.PaginationNumberButton}>3</button>*/}
-                {/*</li>*/}
             </ul>
             <div className={styles.StuckButtons}>
-                <button data-change-to={'prev'} onClick={paginationButtonClickHandler} className={styles.BackButton}>Назад</button>
-                <button data-change-to={'next'} onClick={paginationButtonClickHandler} className={styles.NexButton}>Вперед</button>
+                <button data-change-to={'prev'} onClick={paginationButtonClickHandler}
+                        className={styles.BackButton}>Назад
+                </button>
+                <button data-change-to={'next'} onClick={paginationButtonClickHandler}
+                        className={styles.NexButton}>Вперед
+                </button>
             </div>
 
         </div>
