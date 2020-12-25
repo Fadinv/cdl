@@ -12,10 +12,10 @@ const ProductNav: React.FC<ProductNavProps> = () => {
     const pathArray: string[] = ['Майки', 'Поло', 'Толстовки']
 
     const buttonClickHandler = (e) => {
-        const key = e.target.dataset.set as string
-        if (e.target.dataset.set === pathState) return
+        const key = +e.target.dataset.set as number
+        if (key === pathState) return
 
-        setPathState(+key)
+        setPathState(key)
     }
 
     return (
