@@ -7,11 +7,22 @@
   display: flex
   justify-content: space-between
 
+.LogoBox
+  padding: 0 1em
+  display: flex
+  align-items: center
+
+.LogoBox > * + *
+  margin-left: .5em
+
+.LogoImage
+  object-fit: cover
+  width: 50px
+
 .Flex
   display: flex
 
 .CompanyName
-  margin-left: 1em
   font-size: 1.4rem
   font-weight: bold
   display: flex
@@ -123,8 +134,14 @@
 @media (max-width: 65em)
 
 @media (max-width: 42em)
+  .LogoImage
+    width: 40px
   .Help
     display: none
 
   .User
+    display: none
+
+@media (max-width: 20em)
+  .MyCartText
     display: none

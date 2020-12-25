@@ -1,0 +1,63 @@
+@use 'styles/library'
+
+.HelpPanel
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  color: white
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  width: 100%
+  font-size: 1rem
+  padding: 2em 2em 1.5em
+
+.SortBar
+  position: relative
+  cursor: pointer
+  display: flex
+  margin-top: -.5em
+
+.TogglePanel
+  background-color: rgba(230, 230, 230, .1)
+  border-radius: .25em
+  padding: .5em 1em
+  width: 100%
+
+.TogglePanelIsOpen
+  background-color: rgba(0, 0, 0, .84)
+  border-radius: .25em .25em 0 0
+
+.Arrow
+  margin-left: .5em
+  transition: all .3s ease-out
+
+.ArrowRotate
+  transform: rotate(-180deg)
+
+.StuckList
+  position: absolute
+  z-index: -1
+  opacity: 0
+  top: 100%
+  left: 0
+  background-color: rgba(0, 0, 0, .84)
+  padding: 1em
+  border-radius: 0 0 .25em .25em
+  width: 100%
+  transition: all .3s ease-out
+
+.StuckList > * + *
+  margin-top: .5em
+
+.VariantName
+  display: flex
+  flex-direction: row
+  color: rgba(150, 150, 150, .5)
+
+.VariantNameIsSelected
+  color: library.$color_imperial-red
+
+.Open
+  z-index: 50
+  opacity: 1

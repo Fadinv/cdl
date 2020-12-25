@@ -7,6 +7,7 @@ import ProductsStuck from '../Components/ProductsStuck/ProductsStuck'
 import ProductPagination from '../Components/ProductPagination/ProductPagination'
 import Footer from '../Components/Footer/Footer'
 import IndexWrapper from '../Components/IndexWrapper/IndexWrapper'
+import HelpPanel from '../Components/HelpPanel/HelpPanel'
 
 export default function Home() {
     return (
@@ -21,6 +22,8 @@ export default function Home() {
             <ProductNav/>
 
             <IndexWrapper>
+                <HelpPanel/>
+
                 <ProductsStuck/>
 
                 <ProductPagination/>
