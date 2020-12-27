@@ -84,9 +84,11 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
                     </ul>
                 </div>
             </div>
-            {/*{menuTogglePanelState ? <div onClick={menuTogglePanelStateHandler} className={styles.BackDrop}>*/}
+            {menuTogglePanelState ?
+                <div onClick={menuTogglePanelStateHandler} className={styles.BackDrop}>
 
-            {/*</div> : null}*/}
+                </div>
+                : null}
         </>
     )
 }

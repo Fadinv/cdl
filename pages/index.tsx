@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.sass'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import NavBar from '../Components/NavBar/NavBar'
 import ProductNav from '../Components/ProductNav/ProductNav'
 import ProductsStuck from '../Components/ProductsStuck/ProductsStuck'
@@ -14,6 +14,10 @@ export default function Home() {
 
     const [menuTogglePanelState, setMenuTogglePanelState] = useState<boolean>(false)
 
+    useEffect(() => {
+        console.log('asd')
+    })
+
     return (
         <div className={styles.container}>
             <Head>
@@ -23,7 +27,8 @@ export default function Home() {
 
             <NavBar/>
 
-            <MenuTogglePanel menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
+            <MenuTogglePanel menuTogglePanelState={menuTogglePanelState}
+                             setMenuTogglePanelState={setMenuTogglePanelState}/>
 
             <ProductNav menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
 
@@ -41,3 +46,5 @@ export default function Home() {
         </div>
     )
 }
+
+
