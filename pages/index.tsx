@@ -13,36 +13,40 @@ import MenuTogglePanel from '../Components/MenuTogglePanel/MenuTogglePanel'
 export default function Home() {
 
     const [menuTogglePanelState, setMenuTogglePanelState] = useState<boolean>(false)
+    const [loaded, setLoaded] = useState<boolean>(false)
 
     useEffect(() => {
-        console.log('asd')
+        if (loaded) return
+        setLoaded(prev => !prev)
     })
 
     return (
         <div className={styles.container}>
-            <Head>
-                <title>consoledotlook</title>
-                <link rel="icon" href="../public/favicon.ico"/>
-            </Head>
+            {loaded ? <>
+                <Head>
+                    <title>consoledotlook</title>
+                    <link rel="icon" href="../public/favicon.ico"/>
+                </Head>
 
-            <NavBar/>
+                <NavBar/>
 
-            <MenuTogglePanel menuTogglePanelState={menuTogglePanelState}
-                             setMenuTogglePanelState={setMenuTogglePanelState}/>
+                <MenuTogglePanel menuTogglePanelState={menuTogglePanelState}
+                                 setMenuTogglePanelState={setMenuTogglePanelState}/>
 
-            <ProductNav menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
+                <ProductNav menuTogglePanelState={menuTogglePanelState}
+                            setMenuTogglePanelState={setMenuTogglePanelState}/>
 
 
-            <IndexWrapper>
+                <IndexWrapper>
 
-                <HelpPanel/>
+                    <HelpPanel/>
 
-                <ProductsStuck/>
+                    <ProductsStuck/>
 
-                <ProductPagination/>
-            </IndexWrapper>
-            <Footer/>
-
+                    <ProductPagination/>
+                </IndexWrapper>
+                <Footer/>
+            </> : null}
         </div>
     )
 }
