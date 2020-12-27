@@ -6,7 +6,7 @@
   top: 0
   left: 0
   display: flex
-  flex-direction: row
+  flex-direction: column
   z-index: 15
   justify-content: center
   width: 100%
@@ -34,14 +34,17 @@
     background-color: library.$color_imperial-red
 
 .WrapperPathBtn
+  display: flex
+  flex-direction: row
+  justify-content: center
 
 .Menu
   position: absolute
-  top: calc(50% - 1.5em)
+  top: 0.33em
   left: 1em
-  width: 5em
-  height: 3em
-  font-size: 1em
+  width: 3em
+  height: 2em
+  font-size: 1.5rem
   font-family: 'Montserrat', Roboto, serif
   font-weight: 400
   color: white
@@ -50,10 +53,21 @@
   line-height: 1
   background-color: library.$color_imperial-red
 
+.togglePanel
+  transition: all .3s ease-out
+  overflow: hidden
+  width: 100%
+  background-color: library.$color_imperial-red
+
+
+
 @media (max-width: 42em)
   .ProductNav
     justify-content: space-between
+
+  .WrapperPathBtn
     padding: 0 1em
+    justify-content: space-between
 
   .Menu
     position: static

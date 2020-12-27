@@ -18,13 +18,16 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
 
     const liClickHandler = (e) => {
         e.preventDefault()
+
         if (!e.target.parentNode) return
 
         const key = +e.target.dataset.key || +e.target.parentNode.dataset.key
+
         if (key === numberVariantSortState) {
             setReversSortState(prevState => !prevState)
             return
         }
+
         setReversSortState(false)
         setNumberVariantSortState(key)
     }
@@ -43,12 +46,14 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
         if (t === div || t.parentNode === div) {
             return
         }
-        console.log('Нашел ошибку', !t.parentNode, !t.parentNode.parentNode)
+
         if (t === ul || t.parentNode === ul || t.parentNode.parentNode === ul) {
             return
         }
+
         ul.classList.remove(styles.Open)
         div.classList.remove(styles.TogglePanelIsOpen)
+
         window.removeEventListener('click', globSortBarClickHandler)
     }
 
@@ -78,22 +83,29 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
                     <span className={styles.SortBarTitle}>Сортировать по</span>
                     <span className={styles.Arrow}>&#9660;</span>
                 </div>
+
                 <ul ref={stuckListRef} className={styles.StuckList}>
                     {variantsSortArray.map((variant, key) => {
+
                         const classesVariantSort = [styles.VariantName]
                         const classesArrow = [styles.Arrow]
+
                         if (++key === numberVariantSortState) {
+
                             classesVariantSort.push(styles.VariantNameIsSelected)
-                            console.log(reversSortState)
+
                             if (reversSortState) {
                                 classesArrow.push(styles.ArrowRotate)
                             }
                         }
-                        return <li data-key={key} onClick={liClickHandler} className={classesVariantSort.join(' ')}
-                                   key={key}>
-                            <span>{variant}</span>
-                            <span className={classesArrow.join(' ')}>&#11167;</span>
-                        </li>
+
+                        return (
+                            <li data-key={key} onClick={liClickHandler} className={classesVariantSort.join(' ')}
+                                key={key}>
+                                <span>{variant}</span>
+                                <span className={classesArrow.join(' ')}>&#11167;</span>
+                            </li>
+                        )
                     })}
                 </ul>
             </div>

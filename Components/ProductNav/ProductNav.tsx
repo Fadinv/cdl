@@ -12,6 +12,7 @@ const ProductNav: React.FC<ProductNavProps> = ({menuTogglePanelState, setMenuTog
 
     const pathArray: string[] = ['Майки', 'Поло', 'Толстовки']
 
+
     const buttonClickHandler = (e) => {
         const key = +e.target.dataset.set as number
         if (key === pathState) return
@@ -25,26 +26,29 @@ const ProductNav: React.FC<ProductNavProps> = ({menuTogglePanelState, setMenuTog
 
     return (
         <div className={styles.ProductNav}>
-            <button onClick={menuTogglePanelHandler} className={styles.Menu}>
-                &#9776;
-            </button>
 
             <div className={styles.WrapperPathBtn}>
-                {pathArray.map((btn, key) => {
-                    const classesBtn = [styles.Path]
-                    if (key === pathState) {
-                        classesBtn.push(styles.PathActive)
-                    }
-                    return (
-                        <button data-set={key}
-                                onClick={buttonClickHandler}
-                                className={classesBtn.join(' ')}
-                                key={key}
-                        >
-                            {btn}
-                        </button>)
-                })}
+                <button onClick={menuTogglePanelHandler} className={styles.Menu}>
+                    &#9776;
+                </button>
+                <div>
+                    {pathArray.map((btn, key) => {
+                        const classesBtn = [styles.Path]
+                        if (key === pathState) {
+                            classesBtn.push(styles.PathActive)
+                        }
+                        return (
+                            <button data-set={key}
+                                    onClick={buttonClickHandler}
+                                    className={classesBtn.join(' ')}
+                                    key={key}
+                            >
+                                {btn}
+                            </button>)
+                    })}
+                </div>
             </div>
+
         </div>
     )
 }

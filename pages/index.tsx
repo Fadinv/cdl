@@ -23,10 +23,12 @@ export default function Home() {
 
             <NavBar/>
 
+            <MenuTogglePanel menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
+
             <ProductNav menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
 
+
             <IndexWrapper>
-                <MenuTogglePanel menuTogglePanelState={menuTogglePanelState} setMenuTogglePanelState={setMenuTogglePanelState}/>
 
                 <HelpPanel/>
 

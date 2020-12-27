@@ -38,7 +38,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
 
     const clickHandler = (e) => {
         e.preventDefault()
-        console.log(e.type)
+        const imgWidth = e.target.getBoundingClientRect().width
+        const imgBoxWidth = e.target.parentNode.getBoundingClientRect().width
+        if (imgWidth !== imgBoxWidth) {
+            console.log('ПЕРЕХОДИМ ПО ССЫЛКЕ')
+        }
     }
 
     const sizesBtn: sizeArrayType = ['xs', 's', 'm', 'l', 'xl', 'xxl']

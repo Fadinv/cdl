@@ -70,7 +70,7 @@ export const data: data = {
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
-            title: 'Орпографическое название',
+            title: 'Орпогрфическое назване',
             isLiked: false,
             price: 1995,
             src: '/stuff/pngegg.png',

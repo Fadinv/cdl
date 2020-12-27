@@ -26,7 +26,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </button>
 
                 <button className={styles.User}>
-                    Войти в личный кабинет
+                    Личный кабинет
                     <div className={styles.hoverLine}>
 
                     </div>

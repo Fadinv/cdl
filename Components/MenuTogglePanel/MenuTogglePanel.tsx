@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
 import styles from './MenuTogglePanel.module.sass'
+import {removeElementsOfArray} from '../../utils/removeElemetsOfArray'
 
 interface MenuTogglePanelProps {
     menuTogglePanelState: boolean
@@ -8,10 +9,15 @@ interface MenuTogglePanelProps {
 
 const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, setMenuTogglePanelState}) => {
 
-    const classesMenu = [styles.Menu]
+    const [reverseState, setReverseState] = useState<number>(0)
+
+    const helpContainerRef = useRef<HTMLUListElement>(null)
+    const userContainerRef = useRef<HTMLUListElement>(null)
+
+    const arrayHeaderMenu = ['Помощь', 'Личный кабинет']
+
     const classesMenuTogglePanel = [styles.MenuTogglePanel]
     if (menuTogglePanelState) {
-        classesMenu.push(styles.MenuIsOpen)
         classesMenuTogglePanel.push(styles.MenuTogglePanelIsOpen)
     }
 
@@ -19,18 +25,69 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
         setMenuTogglePanelState(prev => !prev)
     }
 
+    const UserButtonClickHandler = (e) => {
+        const typeButton = e.target.dataset.typeButton
+        let bool = false
+        if (typeButton === 'Помощь') {
+            if (reverseState === 0) return
+            bool = true
+            setReverseState(prev => --prev)
+        }
+
+        if (typeButton === 'Личный кабинет') {
+            console.log(reverseState)
+            if (reverseState === 1) return
+            setReverseState(prev => ++prev)
+        }
+
+        const liElements = helpContainerRef.current.children
+        const user = userContainerRef.current
+
+        removeElementsOfArray(liElements, user, liElements.length - 1, bool)
+    }
+
+    const test = (e) => {
+        console.log(e)
+    }
+
     return (
-        <div className={classesMenuTogglePanel.join(' ')}>
-            <div className={classesMenu.join(' ')}>
-                <div className={styles.StickyBox}>
-                    Ну епта
+        <>
+            <div className={classesMenuTogglePanel.join(' ')}>
+                <div className={styles.HeaderMenu}>
+                    {arrayHeaderMenu.map((btn, key) => {
+                        const classesButton = [styles.HeaderMenuButton]
+                        if (reverseState === key) {
+                            classesButton.push(styles.HeaderMenuButtonIsActive)
+                        }
+                        return (
+                            <button
+                                key={key}
+                                data-type-button={`${btn}`}
+                                onClick={UserButtonClickHandler}
+                                className={classesButton.join(' ')}
+                            >
+                                {btn}
+                            </button>
+                        )
+                    })}
+                    <button onClick={menuTogglePanelStateHandler} className={styles.CloseButton}>Х</button>
+                </div>
+                <div className={styles.StuckRef}>
+                    <ul ref={helpContainerRef} className={styles.HelpContainer}>
+                        <li className={styles.HelpLine}>Доставка</li>
+                        <li className={styles.HelpLine}>Оформление заказа</li>
+                        <li className={styles.HelpLine}>Оплата</li>
+                    </ul>
+                    <ul ref={userContainerRef} className={styles.UserContainer}>
+                        <li className={styles.HelpLine}>Войти</li>
+                        <li className={styles.HelpLine}>Регистрация</li>
+                    </ul>
                 </div>
             </div>
+            {/*{menuTogglePanelState ? <div onClick={menuTogglePanelStateHandler} className={styles.BackDrop}>*/}
 
-            {menuTogglePanelState ? <div onClick={menuTogglePanelStateHandler} className={styles.MenuBackground}>
-
-            </div> : null}
-        </div>
+            {/*</div> : null}*/}
+        </>
     )
 }
 

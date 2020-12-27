@@ -31,14 +31,8 @@
   height: 100%
 
 .ImageBox
-  //padding: 1em
-  //height: auto
-  //max-height: 100%
-  //width: 100%
-  //max-width: 100%
   box-sizing: border-box
   position: relative
-  //z-index: 5
   transition: width .3s ease-out
   font-size: 1rem
   border-radius: .25em
@@ -46,6 +40,7 @@
 
 .ProductImage
   transition: all .3s ease-out
+  cursor: pointer
   box-sizing: border-box
   font-size: 1rem
   display: block
@@ -243,6 +238,24 @@
   .StuckButtons > *
     padding: .5em .75em
 
-@media (max-width: 25em)
+@media (max-width: 30em)
+  .SizesStuck
+    margin-top: 0
+
   .SizeStuckBtnItem
-    font-size: 1.15rem
+    font-size: 1.2rem
+
+@media (max-width: 20em)
+  .SizeStuckBtnItem
+    font-size: 1.1rem
+
+@media (max-width: 15em)
+  .SizesStuck
+    margin-top: -.25em
+    max-height: 90%
+
+  .SizeStuckBtnItem
+    font-size: .8rem
+
+  .WatchButton
+    padding: .25em .5em

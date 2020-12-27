@@ -2,41 +2,98 @@
 
 .MenuTogglePanel
   font-size: 1rem
-  position: absolute
-  left: 0
+  position: fixed
+  background-color: library.$color_imperial-red
+  color: white
+  z-index: 100
+  opacity: 0
+  left: -400px
   top: 0
-  width: 100%
+  width: 400px
+  max-width: 50%
   height: 100%
+  transition: left .3s ease-in, opacity .3s ease-out
 
 .MenuTogglePanelIsOpen
-  z-index: 100
+  transition: left .3s ease-out, opacity .3s ease-out
+  left: 0
+  opacity: 1
 
-.Menu
-  position: absolute
-  width: 25em
-  max-width: 50%
+
+.BackDrop
+  position: fixed
+  z-index: 50
+  width: 100%
+  height: 100%
   top: 0
-  left: -25em
-  border-right: 1px solid library.$color_main-grey
-  height: 100%
-  background-color: library.$color_imperial-red
-  transition: all .3s ease-out
-  z-index: 2
-
-.MenuIsOpen
   left: 0
+  background-color: rgba(0, 0, 0, .7)
 
-.StickyBox
-  position: sticky
-
+.HeaderMenu
   width: 100%
-  padding: 1em 0 1em 1em
-  left: 0
-  top: 4.5em
+  display: flex
+  flex-direction: row
+  justify-content: space-between
 
-.MenuBackground
+.HeaderMenuButton
+  font-size: 1rem
+  background-color: rgba(23, 20, 20, 0)
+  color: white
+  width: 100%
+  &:hover
+    background-color: rgba(23, 20, 20, .6)
+
+.HeaderMenuButtonIsActive
+  box-shadow: inset 0 0 2px 1px rgba(23, 20, 20, .6)
+  background-color: rgba(23, 20, 20, .6)
+
+.UserButton
+  font-size: 1rem
+  background-color: rgba(23, 20, 20, 0)
+  color: white
+  width: 100%
+  &:hover
+    background-color: rgba(23, 20, 20, .6)
+
+.CloseButton
+  box-shadow: inset 0 0 2px 1px rgba(23, 20, 20, .6)
+  font-size: 1rem
+  padding: 0
+  min-width: 3em
+  color: white
+  height: 3em
+  margin: .5em
+  background-color: rgba(23, 20, 20, .6)
+  border-radius: .25em
+
+.StuckRef
+  display: flex
+  flex-direction: row
+  overflow: hidden
+
+.HelpContainer
+  width: 100%
   position: absolute
+
+.UserContainer
+  opacity: 0
   width: 100%
-  height: 100%
-  z-index: 1
-  background-color: rgba(0, 0, 0, .5)
+  position: absolute
+  transition: none
+
+.UserContainerIsOpen
+  transition: opacity .3s ease-out
+  opacity: 1
+
+.HelpLine
+  padding: 1em
+  cursor: pointer
+  border-bottom: 1px solid rgba(244,244,244,.5)
+  position: relative
+  transition: all .3s ease-out
+
+.liElementsClosed
+  margin-left: -100%
+  cursor: auto
+  z-index: -1
+  border-bottom: 1px solid rgba(244,244,244,0)
