@@ -88,22 +88,20 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
                     {variantsSortArray.map((variant, key) => {
 
                         const classesVariantSort = [styles.VariantName]
-                        const classesArrow = [styles.Arrow]
 
                         if (++key === numberVariantSortState) {
-
                             classesVariantSort.push(styles.VariantNameIsSelected)
 
                             if (reversSortState) {
-                                classesArrow.push(styles.ArrowRotate)
+                                classesVariantSort.push(styles.ArrowRotate)
                             }
                         }
 
                         return (
-                            <li data-key={key} onClick={liClickHandler} className={classesVariantSort.join(' ')}
+                            <li data-key={key} data-check-arrow={'arrow'} onClick={liClickHandler} className={classesVariantSort.join(' ')}
                                 key={key}>
                                 <span>{variant}</span>
-                                <span className={classesArrow.join(' ')}>&#11167;</span>
+                                {key === numberVariantSortState ? <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><polygon points="0 0 300 600 600 0 300 244.35 0 0"/></svg> : null}
                             </li>
                         )
                     })}

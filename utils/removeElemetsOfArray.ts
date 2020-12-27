@@ -8,7 +8,7 @@ export const removeElementsOfArray = (arr, user, i, reverse = false, first = tru
 
     if (arr[i] === undefined) return
 
-    let promise = new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(i)
 
@@ -24,7 +24,6 @@ export const removeElementsOfArray = (arr, user, i, reverse = false, first = tru
     })
         .then(i => {
             if (i === 0 && !reverse || i === arr.length - 1 && reverse) {
-                console.log('Вошли')
                 let timeout = reverse ? 0 : 200
                 setTimeout(() => {
                     user.classList.toggle(styles.UserContainerIsOpen)

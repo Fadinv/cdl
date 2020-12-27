@@ -35,7 +35,6 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
         }
 
         if (typeButton === 'Личный кабинет') {
-            console.log(reverseState)
             if (reverseState === 1) return
             setReverseState(prev => ++prev)
         }
@@ -44,10 +43,6 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
         const user = userContainerRef.current
 
         removeElementsOfArray(liElements, user, liElements.length - 1, bool)
-    }
-
-    const test = (e) => {
-        console.log(e)
     }
 
     return (

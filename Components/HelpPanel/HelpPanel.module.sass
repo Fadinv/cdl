@@ -30,13 +30,10 @@
   border-radius: .25em .25em 0 0
 
 .Arrow
-  font-size: 1rem
-  line-height: 1
+  //font-size: 1.2rem
+  //line-height: .5
   margin-left: .5em
-  transition: all .3s ease-out
-
-.ArrowRotate
-  transform: rotate(-180deg)
+  //transition: all .3s ease-out
 
 .StuckList
   position: absolute
@@ -57,10 +54,25 @@
   display: flex
   flex-direction: row
   align-items: center
-  color: rgba(150, 150, 150, .5)
+  color: rgba(150, 150, 150, .7)
+
+.VariantName > svg
+  z-index: -1
+  margin-left: .5em
+  fill: rgba(150, 150, 150, .7)
+  width: .8em
+  height: .8em
+  transition: transform .3s ease-in
 
 .VariantNameIsSelected
+  font-weight: 600
   color: library.$color_imperial-red
+
+.VariantNameIsSelected > svg
+  fill: library.$color_imperial-red
+
+.ArrowRotate > svg
+  transform: rotate(-180deg)
 
 .Open
   z-index: 50

@@ -77,6 +77,11 @@
   &:hover
     box-shadow: 0 0 0 0.1em library.$color_imperial-red
 
+.Like > svg
+  width: 60%
+  fill: white
+  transition: all .3s ease-out
+
 .Liked
   border-color: library.$color_honeydew
   color: library.$color_honeydew
@@ -84,6 +89,9 @@
 
   &:hover
     box-shadow: none
+
+.Liked > svg
+  fill: library.$color_honeydew
 
 .SizesStuck
   max-height: 85%
@@ -106,7 +114,7 @@
 .SizeStuckBtnItem
   cursor: pointer
   font-family: 'Montserrat', serif
-  font-size: 1.4rem
+  font-size: 2rem
   padding: 0
   color: library.$color_powderblue
   width: 2em
@@ -234,6 +242,10 @@
   &:hover
     background-color: rgba(240, 240, 240, .15)
 
+@media (max-width: 130em)
+  .SizeStuckBtnItem
+    font-size: 1.2rem
+
 @media (min-width: 42em)
   .StuckButtons > *
     padding: .5em .75em
@@ -242,10 +254,7 @@
   .SizesStuck
     margin-top: 0
 
-  .SizeStuckBtnItem
-    font-size: 1.2rem
-
-@media (max-width: 20em)
+//@media (max-width: 20em)
   .SizeStuckBtnItem
     font-size: 1.1rem
 
