@@ -22,6 +22,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
 
     const likeClasses = [styles.Like]
 
+    const [imageLoaded, setImageLoaded] = useState<boolean>(false)
     const [likeState, setLikeState] = useState<boolean>(isLiked)
 
     if (isLiked) {
@@ -61,7 +62,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
         <div key={id} className={styles.ProductItem}>
             <div className={styles.HeightWrapperImageBox}>
                 <div onClick={clickHandler} className={styles.ImageBox}>
-                    <img className={styles.ProductImage} src={src} alt={''}/>
+                    <img style={{
+                        opacity: imageLoaded ? '1' : '0'
+                    }} onLoad={(e) => {
+                        setImageLoaded(true)
+                    }} className={styles.ProductImage} src={src} alt={''}/>
                 </div>
 
                 <button className={styles.WatchButton}>Подробнее...</button>

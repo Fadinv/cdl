@@ -13,7 +13,7 @@ export const data: data = {
             title: 'Название первое',
             isLiked: false,
             price: 3000,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt1.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -21,7 +21,7 @@ export const data: data = {
             title: 'Название второе',
             isLiked: true,
             price: 2300,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt2.png',
             sizes: ['xs', null, 'm', 'l', null, 'xxl'],
         },
         {
@@ -29,7 +29,7 @@ export const data: data = {
             title: 'Название третье',
             isLiked: true,
             price: 1999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt3.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', null],
         },
         {
@@ -37,7 +37,7 @@ export const data: data = {
             title: 'English title',
             isLiked: false,
             price: 1900,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt4.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -45,7 +45,7 @@ export const data: data = {
             title: 'Название пятое',
             isLiked: false,
             price: 5499,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt5.png',
             sizes: [null, null, 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -53,7 +53,7 @@ export const data: data = {
             title: 'Короткое название',
             isLiked: false,
             price: 3999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt6.png',
             sizes: ['xs', 's', 'm', 'l', null, null],
         },
         {
@@ -61,7 +61,7 @@ export const data: data = {
             title: 'Недоделанное назва',
             isLiked: false,
             price: 2999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt7.png',
             sizes: ['xs', 's', 'm', 'l', null, null],
         },
         {
@@ -69,7 +69,7 @@ export const data: data = {
             title: 'Нет названия',
             isLiked: false,
             price: 1799,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt8.png',
             sizes: ['xs', 's', 'm', 'l', null, null],
         },
         {
@@ -77,7 +77,7 @@ export const data: data = {
             title: 'undefined',
             isLiked: false,
             price: 2099,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt9.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -85,7 +85,7 @@ export const data: data = {
             title: '1994',
             isLiked: false,
             price: 1995,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt10.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -93,7 +93,7 @@ export const data: data = {
             title: 'Дорогое название',
             isLiked: false,
             price: 100000,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt11.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -101,7 +101,7 @@ export const data: data = {
             title: 'Последнее',
             isLiked: false,
             price: 1900,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt12.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -109,7 +109,7 @@ export const data: data = {
             title: 'Вторая страница',
             isLiked: false,
             price: 2999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt13.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -117,7 +117,7 @@ export const data: data = {
             title: '(2)Проверка',
             isLiked: false,
             price: 999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt14.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -125,7 +125,7 @@ export const data: data = {
             title: 'Проверяем',
             isLiked: false,
             price: 3900,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt15.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -133,7 +133,7 @@ export const data: data = {
             title: 'Что это?',
             isLiked: false,
             price: 4999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt16.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -141,7 +141,7 @@ export const data: data = {
             title: 'Если честно',
             isLiked: false,
             price: 1900,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt17.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -149,7 +149,7 @@ export const data: data = {
             title: 'Все майки',
             isLiked: false,
             price: 2000,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt18.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -157,7 +157,7 @@ export const data: data = {
             title: 'Одинаковые',
             isLiked: false,
             price: 1499,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt19.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -165,7 +165,7 @@ export const data: data = {
             title: 'Так что, вот',
             isLiked: false,
             price: 3999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt20.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -173,7 +173,7 @@ export const data: data = {
             title: 'Ну попробуем',
             isLiked: false,
             price: 7500,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt21.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -181,7 +181,7 @@ export const data: data = {
             title: 'Как быть',
             isLiked: false,
             price: 4000,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt22.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -189,7 +189,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt23.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -197,7 +197,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 998,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt24.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -205,7 +205,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 1305,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt25.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -213,7 +213,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 1850,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt26.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -221,7 +221,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 19999,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt27.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {
@@ -229,7 +229,7 @@ export const data: data = {
             title: 'Еще много',
             isLiked: false,
             price: 2345,
-            src: '/stuff/shirt.png',
+            src: '/stuff/shirt28.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
         {

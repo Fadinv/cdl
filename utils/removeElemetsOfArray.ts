@@ -46,10 +46,8 @@ export const setOpacityProductStuck = () => {
     productStuck!.style.opacity = '0'
 }
 
-export const scrollPage = (timeout) => {
-    setTimeout(() => {
-        scroll(0, 0)
-    }, timeout)
+export const scrollPage = () => {
+    scroll({behavior: 'smooth', top: 0})
 }
 
 export const getDataTypeProp = (pr) => {
@@ -65,10 +63,6 @@ export const getDataTypeProp = (pr) => {
     }
 }
 
-const getSortFC = () => {
-
-}
-
 export const sortFunction = (productsArray, numberVariantSortState, reversSortState) => {
     let variant: string
     if (numberVariantSortState === 1) {
@@ -81,7 +75,6 @@ export const sortFunction = (productsArray, numberVariantSortState, reversSortSt
     if (reversSortState) {
         reverse = -reverse
     }
-    console.log(reverse)
     productsArray.sort((a, b) => {
         if (a[variant] > b[variant]) return reverse
         if (a[variant] < b[variant]) return -reverse
