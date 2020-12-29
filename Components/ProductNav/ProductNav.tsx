@@ -1,23 +1,41 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styles from './ProductNav.module.sass'
+import {TypeProductRender} from '../../types/types'
+import {scrollPage, setOpacityProductStuck} from '../../utils/removeElemetsOfArray'
 
 interface ProductNavProps {
     menuTogglePanelState: boolean
     setMenuTogglePanelState: React.Dispatch<React.SetStateAction<boolean>>
+    typeProductRender: TypeProductRender
+    setTypeProductRender: React.Dispatch<React.SetStateAction<TypeProductRender>>
+    setPaginationState: React.Dispatch<React.SetStateAction<number>>
+    setProductStuckLoaded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ProductNav: React.FC<ProductNavProps> = ({menuTogglePanelState, setMenuTogglePanelState}) => {
+const ProductNav: React.FC<ProductNavProps> = ({
+                                                   menuTogglePanelState,
+                                                   setMenuTogglePanelState,
+                                                   typeProductRender,
+                                                   setTypeProductRender,
+                                                   setPaginationState,
+                                                   setProductStuckLoaded,
+                                               }) => {
 
-    const [pathState, setPathState] = useState<number>(0)
-
-    const pathArray: string[] = ['Майки', 'Поло', 'Толстовки']
-
+    const pathArray: TypeProductRender[] = ['Майки', 'Поло', 'Толстовки']
 
     const buttonClickHandler = (e) => {
-        const key = +e.target.dataset.set as number
-        if (key === pathState) return
+        const btn: TypeProductRender = e.target.dataset.set
+        if (btn === typeProductRender) return
+        let timeout = 300
+        setOpacityProductStuck()
 
-        setPathState(key)
+        scrollPage(timeout / 2)
+        setTimeout(() => {
+            setPaginationState(0)
+            setTypeProductRender(btn)
+            setProductStuckLoaded(false)
+        }, timeout)
+
     }
 
     const menuTogglePanelHandler = (e) => {
@@ -34,11 +52,11 @@ const ProductNav: React.FC<ProductNavProps> = ({menuTogglePanelState, setMenuTog
                 <div>
                     {pathArray.map((btn, key) => {
                         const classesBtn = [styles.Path]
-                        if (key === pathState) {
+                        if (btn === typeProductRender) {
                             classesBtn.push(styles.PathActive)
                         }
                         return (
-                            <button data-set={key}
+                            <button data-set={btn}
                                     onClick={buttonClickHandler}
                                     className={classesBtn.join(' ')}
                                     key={key}

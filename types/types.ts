@@ -10,9 +10,12 @@ export type sizeArrayType = [xs, s, m, l, xl, xxl]
 export type sizeStateType = xs | s | m | l | xl | xxl
 
 export type Product = {
+    id: number
     title: string
     isLiked: boolean
     price: number
     src: string
     sizes: sizeArrayType
 }
+
+export type TypeProductRender = 'Майки' | 'Поло' | 'Толстовки'

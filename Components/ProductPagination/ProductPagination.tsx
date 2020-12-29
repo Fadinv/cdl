@@ -1,27 +1,54 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styles from './ProductPagination.module.sass'
+import {data} from '../../data/__product__'
+import {getDataTypeProp, scrollPage, setOpacityProductStuck} from '../../utils/removeElemetsOfArray'
+import {TypeProductRender} from '../../types/types'
 
 interface ProductPaginationProps {
-
+    paginationState: number
+    setPaginationState: React.Dispatch<React.SetStateAction<number>>
+    setProductStuckLoaded: React.Dispatch<React.SetStateAction<boolean>>
+    typeProductRender: TypeProductRender
 }
 
-const ProductPagination: React.FC<ProductPaginationProps> = () => {
 
-    const paginationArray = [1, 2, 3, 4, 5]
+const ProductPagination: React.FC<ProductPaginationProps> = ({
+                                                                 paginationState,
+                                                                 setPaginationState,
+                                                                 setProductStuckLoaded,
+                                                                 typeProductRender,
+                                                             }) => {
+    const paginationArray = []
 
-    const [paginationState, setPaginationState] = useState<number>(1)
+    const prop = getDataTypeProp(typeProductRender)
+    const paginationLength = Math.ceil(data[prop].length / 12)
+
+    for (let i = 1; i <= paginationLength; i++) {
+        paginationArray.push(i)
+    }
 
     const paginationButtonClickHandler = (e) => {
         const changeTo = e.target.dataset.changeTo
+        let timeout = 300
 
         switch (changeTo) {
             case 'prev':
-                if (paginationState === 1) return
-                setPaginationState(prev => --prev)
+                if (paginationState === 0) return
+                setOpacityProductStuck()
+                scrollPage(timeout / 2)
+                setTimeout(() => {
+                    setProductStuckLoaded(false)
+                    setPaginationState(prev => --prev)
+                }, timeout)
                 break
             case 'next':
-                if (paginationState === paginationArray.length) return
-                setPaginationState(prev => ++prev)
+                if (paginationState === paginationArray.length - 1) return
+                setOpacityProductStuck()
+                scrollPage(timeout / 2)
+                setTimeout(() => {
+                    setProductStuckLoaded(false)
+                    setPaginationState(prev => ++prev)
+                }, timeout)
                 break
             default:
                 return
@@ -31,9 +58,14 @@ const ProductPagination: React.FC<ProductPaginationProps> = () => {
     const clickPaginationHandler = (e) => {
         e.preventDefault()
         const page = +e.target.dataset.page as number
-        if (page === paginationState) return
-
-        setPaginationState(page)
+        if (page - 1 === paginationState) return
+        const timeout = 300
+        setOpacityProductStuck()
+        scrollPage(timeout / 2)
+        setTimeout(() => {
+            setProductStuckLoaded(false)
+            setPaginationState(page - 1)
+        }, timeout)
     }
 
     return (
@@ -43,7 +75,7 @@ const ProductPagination: React.FC<ProductPaginationProps> = () => {
 
                 {paginationArray.map((page, key) => {
                     const classesBtn = [styles.PaginationNumberButton]
-                    if (page === paginationState) {
+                    if (key === paginationState) {
                         classesBtn.push(styles.NumberButtonActive)
                     }
 

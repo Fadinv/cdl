@@ -1,8 +1,9 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styles from './ProductItem.module.sass'
 import {sizeArrayType, sizeStateType} from '../../../types/types'
 
 interface ProductItemProps {
+    id: number
     src: string
     title: string
     price: number
@@ -11,6 +12,7 @@ interface ProductItemProps {
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({
+                                                     id,
                                                      src,
                                                      title,
                                                      price,
@@ -22,10 +24,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
 
     const [likeState, setLikeState] = useState<boolean>(isLiked)
 
-    if (likeState) {
+    if (isLiked) {
         likeClasses.push(styles.Liked)
     }
-
+    useEffect(() => {
+    })
     const likeRef = useRef<HTMLDivElement>(null)
 
     const [sizeState, useSizeState] = useState<sizeStateType>(null)
@@ -36,7 +39,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         /* Проверка на наличие проводится при рендере */
         const like = likeRef.current
         setLikeState(prev => !prev)
-        // like.classList.toggle(styles.Liked)
+        like.classList.toggle(styles.Liked)
     }
 
     const sizeClkHandler = (e) => {
@@ -55,7 +58,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
     const sizesBtn: sizeArrayType = ['xs', 's', 'm', 'l', 'xl', 'xxl']
 
     return (
-        <div className={styles.ProductItem}>
+        <div key={id} className={styles.ProductItem}>
             <div className={styles.HeightWrapperImageBox}>
                 <div onClick={clickHandler} className={styles.ImageBox}>
                     <img className={styles.ProductImage} src={src} alt={''}/>

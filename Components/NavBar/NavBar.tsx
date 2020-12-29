@@ -26,7 +26,8 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </button>
 
                 <button className={styles.User}>
-                    Личный кабинет
+                    <span className={styles.UserTitle}>Личный кабинет</span>
+                    <img className={styles.UserImg} src={'/user.svg'} alt={''} />
                     <div className={styles.hoverLine}>
 
                     </div>
@@ -37,7 +38,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     <div className={styles.CartBox}>
                         <span className={styles.CartNumber}>99</span>
                         <img className={styles.CartImage}
-                             src='/cart.svg'
+                             src='/shopping-cart.svg'
                              alt=''/>
                     </div>
                 </button>

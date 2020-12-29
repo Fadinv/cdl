@@ -1,13 +1,12 @@
 import styles from '../Components/MenuTogglePanel/MenuTogglePanel.module.sass'
+import {array} from 'prop-types'
 
-export const removeElementsOfArray = (arr, user, i, reverse = false, first = true): void => {
-
+export const removeElementsOfArray = (arr, user, cb, i: number, reverse = false, first = true): void => {
     if (reverse && first) {
         i = 0
     }
-
     if (arr[i] === undefined) return
-
+    let timeout = 200
     new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(i)
@@ -19,15 +18,73 @@ export const removeElementsOfArray = (arr, user, i, reverse = false, first = tru
                 i--
             }
 
-            removeElementsOfArray(arr, user, i, reverse, false)
-        }, 100)
+            removeElementsOfArray(arr, user, cb, i, reverse, false)
+        }, timeout / array.length)
     })
         .then(i => {
-            if (i === 0 && !reverse || i === arr.length - 1 && reverse) {
-                let timeout = reverse ? 0 : 200
+            if (i === 0 && !reverse) {
                 setTimeout(() => {
-                    user.classList.toggle(styles.UserContainerIsOpen)
-                }, timeout)
+                    user.style.opacity = 1
+                    user.classList.add(styles.UserContainerIsOpen)
+                    cb()
+                }, 100)
+
+            }
+
+            if (i === arr.length - 1 && reverse) {
+                setTimeout(() => {
+                    user.style.opacity = 0
+                    user.classList.remove(styles.UserContainerIsOpen)
+                    cb()
+                }, 100)
             }
         })
+}
+
+export const setOpacityProductStuck = () => {
+    const productStuck = document.getElementById('productStuck')
+    productStuck!.style.opacity = '0'
+}
+
+export const scrollPage = (timeout) => {
+    setTimeout(() => {
+        scroll(0, 0)
+    }, timeout)
+}
+
+export const getDataTypeProp = (pr) => {
+    switch (pr) {
+        case 'Майки':
+            return 'shirt'
+        case 'Поло':
+            return 'polo'
+        case 'Толстовки':
+            return 'hoody'
+        default:
+            return 'shirt'
+    }
+}
+
+const getSortFC = () => {
+
+}
+
+export const sortFunction = (productsArray, numberVariantSortState, reversSortState) => {
+    let variant: string
+    if (numberVariantSortState === 1) {
+        variant = 'id'
+    } else if (numberVariantSortState === 2) {
+        variant = 'price'
+    }
+
+    let reverse: number = 1
+    if (reversSortState) {
+        reverse = -reverse
+    }
+    console.log(reverse)
+    productsArray.sort((a, b) => {
+        if (a[variant] > b[variant]) return reverse
+        if (a[variant] < b[variant]) return -reverse
+        if (a[variant] === b[variant]) return 0
+    })
 }

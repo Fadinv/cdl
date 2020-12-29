@@ -1,16 +1,24 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef} from 'react'
 import styles from './HelpPanel.module.sass'
+import {setOpacityProductStuck} from '../../utils/removeElemetsOfArray'
 
 interface HelpPanelProps {
-
+    numberVariantSortState: number
+    setNumberVariantSortState: React.Dispatch<React.SetStateAction<number>>
+    reversSortState: boolean
+    setReversSortState: React.Dispatch<React.SetStateAction<boolean>>
+    setProductStuckLoaded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const HelpPanel: React.FC<HelpPanelProps> = () => {
+const HelpPanel: React.FC<HelpPanelProps> = ({
+                                                 numberVariantSortState,
+                                                 setNumberVariantSortState,
+                                                 reversSortState,
+                                                 setReversSortState,
+                                                 setProductStuckLoaded,
+                                             }) => {
 
-    const variantsSortArray = ['цене', 'рейтингу', 'обновлению']
-
-    const [numberVariantSortState, setNumberVariantSortState] = useState<number>(null)
-    const [reversSortState, setReversSortState] = useState<boolean>(false)
+    const variantsSortArray = ['обновлению', 'цене']
 
     const stuckListRef = useRef<HTMLUListElement>(null)
     const togglePanelRef = useRef<HTMLDivElement>(null)
@@ -22,14 +30,20 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
         if (!e.target.parentNode) return
 
         const key = +e.target.dataset.key || +e.target.parentNode.dataset.key
+        const timeout = 300
 
-        if (key === numberVariantSortState) {
-            setReversSortState(prevState => !prevState)
-            return
-        }
+        setOpacityProductStuck()
 
-        setReversSortState(false)
-        setNumberVariantSortState(key)
+        setTimeout(() => {
+            if (key === numberVariantSortState) {
+                setReversSortState(prevState => !prevState)
+                setProductStuckLoaded(false)
+                return
+            }
+            setReversSortState(false)
+            setNumberVariantSortState(key)
+            setProductStuckLoaded(false)
+        }, timeout)
     }
 
     const globSortBarClickHandler = (e) => {
@@ -98,10 +112,15 @@ const HelpPanel: React.FC<HelpPanelProps> = () => {
                         }
 
                         return (
-                            <li data-key={key} data-check-arrow={'arrow'} onClick={liClickHandler} className={classesVariantSort.join(' ')}
+                            <li data-key={key} data-check-arrow={'arrow'} onClick={liClickHandler}
+                                className={classesVariantSort.join(' ')}
                                 key={key}>
-                                <span>{variant}</span>
-                                {key === numberVariantSortState ? <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><polygon points="0 0 300 600 600 0 300 244.35 0 0"/></svg> : null}
+                                <div>{variant}</div>
+
+                                <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 600 600">
+                                    <polygon points="0 0 300 600 600 0 300 244.35 0 0"/>
+                                </svg>
                             </li>
                         )
                     })}

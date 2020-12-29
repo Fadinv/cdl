@@ -9,11 +9,20 @@ import Footer from '../Components/Footer/Footer'
 import IndexWrapper from '../Components/IndexWrapper/IndexWrapper'
 import HelpPanel from '../Components/HelpPanel/HelpPanel'
 import MenuTogglePanel from '../Components/MenuTogglePanel/MenuTogglePanel'
+import {TypeProductRender} from '../types/types'
+
 
 export default function Home() {
+    const [loaded, setLoaded] = useState<boolean>(false)
+    const [productStuckLoaded, setProductStuckLoaded] = useState<boolean>(false)
 
     const [menuTogglePanelState, setMenuTogglePanelState] = useState<boolean>(false)
-    const [loaded, setLoaded] = useState<boolean>(false)
+
+    const [paginationState, setPaginationState] = useState<number>(0)
+    const [typeProductRender, setTypeProductRender] = useState<TypeProductRender>('Майки')
+
+    const [numberVariantSortState, setNumberVariantSortState] = useState<number>(1)
+    const [reversSortState, setReversSortState] = useState<boolean>(false)
 
     useEffect(() => {
         if (loaded) return
@@ -33,17 +42,28 @@ export default function Home() {
                 <MenuTogglePanel menuTogglePanelState={menuTogglePanelState}
                                  setMenuTogglePanelState={setMenuTogglePanelState}/>
 
-                <ProductNav menuTogglePanelState={menuTogglePanelState}
+                <ProductNav setProductStuckLoaded={setProductStuckLoaded} setPaginationState={setPaginationState}
+                            setTypeProductRender={setTypeProductRender}
+                            typeProductRender={typeProductRender} menuTogglePanelState={menuTogglePanelState}
                             setMenuTogglePanelState={setMenuTogglePanelState}/>
 
 
                 <IndexWrapper>
 
-                    <HelpPanel/>
+                    <HelpPanel setProductStuckLoaded={setProductStuckLoaded} setReversSortState={setReversSortState}
+                               reversSortState={reversSortState}
+                               numberVariantSortState={numberVariantSortState}
+                               setNumberVariantSortState={setNumberVariantSortState}/>
 
-                    <ProductsStuck/>
+                    <ProductsStuck setReversSortState={setReversSortState} reversSortState={reversSortState}
+                                   numberVariantSortState={numberVariantSortState}
+                                   setNumberVariantSortState={setNumberVariantSortState}
+                                   typeProductRender={typeProductRender} setProductStuckLoaded={setProductStuckLoaded}
+                                   productStuckLoaded={productStuckLoaded} paginationState={paginationState}/>
 
-                    <ProductPagination/>
+                    <ProductPagination typeProductRender={typeProductRender}
+                                       setProductStuckLoaded={setProductStuckLoaded} paginationState={paginationState}
+                                       setPaginationState={setPaginationState}/>
                 </IndexWrapper>
                 <Footer/>
             </> : null}

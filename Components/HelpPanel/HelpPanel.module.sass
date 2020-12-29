@@ -13,12 +13,13 @@
   padding: 2em 2em 1.5em
 
 .SortBar
+  font-size: 1.2rem
   position: relative
-  cursor: pointer
   display: flex
   margin-top: -.5em
 
 .TogglePanel
+  cursor: pointer
   background-color: rgba(230, 230, 230, .1)
   border-radius: .25em
   transition: all .3s ease-out
@@ -42,30 +43,34 @@
   top: 100%
   left: 0
   background-color: rgba(0, 0, 0, .84)
-  padding: 1em
+  padding: 1em 0
   border-radius: 0 0 .25em .25em
   width: 100%
   transition: all .3s ease-out
 
 .StuckList > *
-  padding: .25em 0
+  cursor: pointer
+  padding: .5em 1em
+  border-bottom: 1px solid rgba(150, 150, 150, .1)
 
 .VariantName
   display: flex
   flex-direction: row
   align-items: center
   color: rgba(150, 150, 150, .7)
+  transition: background-color .3s ease-out
+  &:hover
+    background-color: rgba(200, 200, 200,.1)
 
 .VariantName > svg
+  position: relative
   z-index: -1
   margin-left: .5em
   fill: rgba(150, 150, 150, .7)
-  width: .8em
-  height: .8em
-  transition: transform .3s ease-in
+  width: .7em
+  height: .7em
 
 .VariantNameIsSelected
-  font-weight: 600
   color: library.$color_imperial-red
 
 .VariantNameIsSelected > svg
