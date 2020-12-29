@@ -312,6 +312,22 @@ export const data: data = {
             src: '/stuff/shirt.png',
             sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
         },
+        {
+            id: 38,
+            title: 'Еще много',
+            isLiked: false,
+            price: 4577,
+            src: '/stuff/shirt.png',
+            sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+        },
+        {
+            id: 39,
+            title: 'Еще много',
+            isLiked: false,
+            price: 4577,
+            src: '/stuff/shirt.png',
+            sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+        },
     ],
     polo: [
         {
