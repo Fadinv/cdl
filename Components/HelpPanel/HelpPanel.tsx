@@ -32,7 +32,7 @@ const HelpPanel: React.FC<HelpPanelProps> = ({
         const key = +e.target.dataset.key || +e.target.parentNode.dataset.key
         const timeout = 300
 
-        setOpacityProductStuck()
+        setOpacityProductStuck(timeout)
 
         setTimeout(() => {
             if (key === numberVariantSortState) {

@@ -12,14 +12,14 @@ const Footer: React.FC<FooterProps> = () => {
                 <p className={styles.NameProject}>consoledotlook</p>
 
                 <ul className={styles.FAQ}>
-                    <li>FAQ</li>
+                    <li className={styles.FooterTitle}>FAQ</li>
                     <li>Доставка</li>
                     <li>Оформление заказа</li>
                     <li>Оплата</li>
                 </ul>
 
                 <ul className={styles.AboutUs}>
-                    <li>О нас</li>
+                    <li className={styles.FooterTitle}>О нас</li>
                     <li>Контакты</li>
                     <li>Отзывы</li>
                 </ul>

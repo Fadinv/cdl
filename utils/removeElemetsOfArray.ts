@@ -41,9 +41,13 @@ export const removeElementsOfArray = (arr, user, cb, i: number, reverse = false,
         })
 }
 
-export const setOpacityProductStuck = () => {
+export const setOpacityProductStuck = (timeout) => {
     const productStuck = document.getElementById('productStuck')
+    productStuck.style.minHeight = String(productStuck.getBoundingClientRect().height) + 'px'
     productStuck!.style.opacity = '0'
+    setTimeout(() => {
+        productStuck.style.minHeight = 'auto'
+    }, timeout+100)
 }
 
 export const scrollPage = () => {

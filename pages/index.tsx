@@ -10,6 +10,7 @@ import IndexWrapper from '../Components/IndexWrapper/IndexWrapper'
 import HelpPanel from '../Components/HelpPanel/HelpPanel'
 import MenuTogglePanel from '../Components/MenuTogglePanel/MenuTogglePanel'
 import {TypeProductRender} from '../types/types'
+import ContactPanel from '../Components/ContactPanel/ContactPanel'
 
 
 export default function Home() {
@@ -65,6 +66,8 @@ export default function Home() {
                                        setProductStuckLoaded={setProductStuckLoaded} paginationState={paginationState}
                                        setPaginationState={setPaginationState}/>
                 </IndexWrapper>
+
+                <ContactPanel />
                 <Footer/>
             </> : null}
         </div>

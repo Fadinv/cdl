@@ -26,9 +26,8 @@ const ProductNav: React.FC<ProductNavProps> = ({
     const buttonClickHandler = (e) => {
         const btn: TypeProductRender = e.target.dataset.set
         if (btn === typeProductRender) return
-        let timeout = 350
-        setOpacityProductStuck()
-
+        let timeout = 300
+        setOpacityProductStuck(timeout)
         scrollPage()
         setTimeout(() => {
             setPaginationState(0)

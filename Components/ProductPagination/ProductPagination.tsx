@@ -34,7 +34,7 @@ const ProductPagination: React.FC<ProductPaginationProps> = ({
         switch (changeTo) {
             case 'prev':
                 if (paginationState === 0) return
-                setOpacityProductStuck()
+                setOpacityProductStuck(timeout)
                 scrollPage()
                 setTimeout(() => {
                     setProductStuckLoaded(false)
@@ -43,7 +43,7 @@ const ProductPagination: React.FC<ProductPaginationProps> = ({
                 break
             case 'next':
                 if (paginationState === paginationArray.length - 1) return
-                setOpacityProductStuck()
+                setOpacityProductStuck(timeout)
                 scrollPage()
                 setTimeout(() => {
                     setProductStuckLoaded(false)
@@ -59,8 +59,8 @@ const ProductPagination: React.FC<ProductPaginationProps> = ({
         e.preventDefault()
         const page = +e.target.dataset.page as number
         if (page - 1 === paginationState) return
-        const timeout = 500
-        setOpacityProductStuck()
+        const timeout = 300
+        setOpacityProductStuck(timeout)
         scrollPage()
         setTimeout(() => {
             setProductStuckLoaded(false)
