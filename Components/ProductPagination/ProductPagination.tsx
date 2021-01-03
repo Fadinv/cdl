@@ -86,10 +86,10 @@ const ProductPagination: React.FC<ProductPaginationProps> = ({
                 })}
             </ul>
             <div className={styles.StuckButtons}>
-                <button data-change-to={'prev'} onClick={paginationButtonClickHandler}
+                <button id={'prev'} data-change-to={'prev'} onClick={paginationButtonClickHandler}
                         className={styles.BackButton}>Назад
                 </button>
-                <button data-change-to={'next'} onClick={paginationButtonClickHandler}
+                <button id={'next'} data-change-to={'next'} onClick={paginationButtonClickHandler}
                         className={styles.NexButton}>Вперед
                 </button>
             </div>

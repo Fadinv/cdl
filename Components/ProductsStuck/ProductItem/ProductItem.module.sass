@@ -113,6 +113,7 @@
   margin-top: .5em
 
 .SizeStuckBtnItem
+  position: relative
   cursor: pointer
   font-family: 'Montserrat', serif
   font-size: 1.2rem
@@ -272,19 +273,19 @@
 
 @media (max-width: 30em)
   .SizesStuck
-    margin-top: 0
+    margin-top: -.25em
 
-//@media (max-width: 20em)
+@media (max-width: 20em)
   .SizeStuckBtnItem
-    font-size: 1.1rem
+    font-size: 1rem
+
+@media (max-width: 17.5em)
+  .SizeStuckBtnItem
+    font-size: .8rem
 
 @media (max-width: 15em)
   .SizesStuck
-    margin-top: -.25em
     max-height: 90%
-
-  .SizeStuckBtnItem
-    font-size: .8rem
 
   .WatchButton
     padding: .25em .5em

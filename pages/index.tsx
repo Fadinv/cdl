@@ -30,15 +30,33 @@ export default function Home() {
         setLoaded(prev => !prev)
     })
 
+    let startX = null
+
+    const touchEnd = (e) => {
+        let endX = e.changedTouches[0].clientX
+        if (startX - endX >= 50) {
+            setMenuTogglePanelState(false)
+        }
+    }
+
+    const touchStart = (e) => {
+        startX = e.touches[0].clientX
+    }
+
     return (
-        <div className={styles.container}>
+        <div onTouchStart={menuTogglePanelState ? touchStart : null}
+             onTouchEnd={menuTogglePanelState ? touchEnd : null}
+             className={styles.container}
+        >
             {loaded ? <>
                 <Head>
                     <title>consoledotlook</title>
                     <link rel="icon" href="../public/favicon.ico"/>
                 </Head>
 
-                <NavBar/>
+                <NavBar menuTogglePanelState={menuTogglePanelState}
+                        setMenuTogglePanelState={setMenuTogglePanelState}/>
+
 
                 <MenuTogglePanel menuTogglePanelState={menuTogglePanelState}
                                  setMenuTogglePanelState={setMenuTogglePanelState}/>
@@ -49,7 +67,7 @@ export default function Home() {
                             setMenuTogglePanelState={setMenuTogglePanelState}/>
 
 
-                <IndexWrapper>
+                <IndexWrapper paginationState={paginationState} setPaginationState={setPaginationState}>
 
                     <HelpPanel setProductStuckLoaded={setProductStuckLoaded} setReversSortState={setReversSortState}
                                reversSortState={reversSortState}
@@ -67,7 +85,7 @@ export default function Home() {
                                        setPaginationState={setPaginationState}/>
                 </IndexWrapper>
 
-                <ContactPanel />
+                <ContactPanel/>
                 <Footer/>
             </> : null}
         </div>

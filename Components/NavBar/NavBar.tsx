@@ -2,10 +2,18 @@ import React from 'react'
 import styles from './NavBar.module.sass'
 
 interface NavBarProps {
-
+    menuTogglePanelState: boolean
+    setMenuTogglePanelState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC<NavBarProps> = ({menuTogglePanelState, setMenuTogglePanelState}) => {
+
+    const userButtonClickHandler = () => {
+        setMenuTogglePanelState(true)
+        const userButton = document.getElementById('userButton')
+        userButton.click()
+    }
+
     return (
         <nav className={styles.NavBar}>
 
@@ -25,7 +33,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     </div>
                 </button>
 
-                <button className={styles.User}>
+                <button onClick={userButtonClickHandler} className={styles.User}>
                     <span className={styles.UserTitle}>Личный кабинет</span>
                     <img className={styles.UserImg} src={'/user.svg'} alt={''} />
                     <div className={styles.hoverLine}>

@@ -11,13 +11,17 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
 
     const [reverseState, setReverseState] = useState<number>(0)
     const [animateState, setAnimateState] = useState<boolean>(false)
+    const [userEntryState, setUserEntryState] = useState<number>(0)
 
     const helpContainerRef = useRef<HTMLUListElement>(null)
     const userContainerRef = useRef<HTMLUListElement>(null)
 
     const arrayHeaderMenu = ['Помощь', 'Личный кабинет']
 
+    const arrayOfUserEntryPanel = ['Войти', 'Регистрация']
+
     const classesMenuTogglePanel = [styles.MenuTogglePanel]
+
     if (menuTogglePanelState) {
         classesMenuTogglePanel.push(styles.MenuTogglePanelIsOpen)
     }
@@ -42,9 +46,7 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
             user.classList.remove(styles.UserContainerIsOpen)
             user.style.display = 'none'
             user.style.opacity = '0'
-        }
-
-        if (typeButton === 'Личный кабинет') {
+        } else if (typeButton === 'Личный кабинет') {
             if (reverseState === 1) return
             if (animateState) {
                 user.classList.remove(styles.UserContainerIsOpen)
@@ -57,6 +59,32 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
         removeElementsOfArray(liElements, user, () => {
             setAnimateState(false)
         }, liElements.length - 1, bool)
+    }
+
+    const userEntryStateHandler = (e) => {
+        const key: number = +e.target.dataset.key
+        if (key === userEntryState) return
+
+        const lastLiElement = userContainerRef.current.children[userEntryState] as HTMLOListElement
+        const lastDivElement = lastLiElement.lastElementChild as HTMLDivElement
+        const lastSpanElement = lastLiElement.firstElementChild as HTMLSpanElement
+
+        lastLiElement.style.height = lastLiElement.getBoundingClientRect().height + 'px'
+        lastLiElement.style.height = lastSpanElement.getBoundingClientRect().height + 1 + 'px'
+
+        const li = e.target.parentNode
+        const div = e.target.nextElementSibling
+
+        li.style.height = lastSpanElement.getBoundingClientRect().height + 1 + 'px'
+        li.style.height = lastLiElement.getBoundingClientRect().height + 'px'
+        div.style.display = 'flex'
+
+        setTimeout(() => {
+            lastLiElement.style.height = 'auto'
+            lastDivElement.style.display = 'none'
+            li.style.height = 'auto'
+            setUserEntryState(key)
+        },300)
     }
 
     return (
@@ -72,6 +100,7 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
                         }
                         return (
                             <button
+                                id={btn === 'Личный кабинет' ? 'userButton' : 'helpButton'}
                                 key={key}
                                 data-type-button={`${btn}`}
                                 onClick={UserButtonClickHandler}
@@ -86,18 +115,28 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
                 </div>
                 <div className={styles.StuckRef}>
                     <ul ref={helpContainerRef} className={styles.HelpContainer}>
-                        <li className={styles.HelpLine}>Доставка</li>
-                        <li className={styles.HelpLine}>Оформление заказа</li>
-                        <li className={styles.HelpLine}>Оплата</li>
-                        <li className={styles.HelpLine}>Что-то еще</li>
-                        <li className={styles.HelpLine}>Что-то еще</li>
-                        <li className={styles.HelpLine}>Что-то еще</li>
-                        <li className={styles.HelpLine}>Что-то еще</li>
-                        <li className={styles.HelpLine}>Что-то еще</li>
+                        <li className={styles.HelpLine}><span className={styles.LiTitle}>Доставка</span></li>
+                        <li className={styles.HelpLine}><span className={styles.LiTitle}>Оформление заказа</span></li>
+                        <li className={styles.HelpLine}><span className={styles.LiTitle}>Оплата</span></li>
                     </ul>
                     <ul ref={userContainerRef} className={styles.UserContainer}>
-                        <li className={styles.HelpLine}>Войти</li>
-                        <li className={styles.HelpLine}>Регистрация</li>
+                        {arrayOfUserEntryPanel.map((title, key) => {
+                            return (
+                                <li key={key} className={styles.HelpLine}>
+                                    <span className={styles.LiTitle} data-key={key} onClick={userEntryStateHandler}>{title}</span>
+                                    <div style={userEntryState !== key ? {display: 'none'} : {}} className={styles.InputStuck}>
+                                        <label className={styles.InputStuckLabel} htmlFor="Email">Почта</label>
+                                        <input className={styles.InputStuckInput} type="email"/>
+                                        <label className={styles.InputStuckLabel} htmlFor="Email">Пароль</label>
+                                        <input className={styles.InputStuckInput} type="password"/>
+                                        <div className={styles.StuckEntryButtons}>
+                                            <button className={styles.ForgottenButton}>Забыли пароль?</button>
+                                            <button className={styles.EntryOrRegisterButton}>{title}</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </div>
             </div>

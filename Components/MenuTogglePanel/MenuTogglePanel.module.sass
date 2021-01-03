@@ -7,10 +7,10 @@
   color: white
   z-index: 100
   opacity: 0
-  left: -400px
+  left: -500px
   top: 0
-  width: 400px
-  max-width: 60%
+  width: 500px
+  max-width: 70%
   height: 100%
   transition: left .3s ease-in, opacity .3s ease-out
 
@@ -92,11 +92,61 @@
   opacity: 1
 
 .HelpLine
-  padding: 1em
+  font-size: 1rem
+  display: flex
+  flex-direction: column
+  padding: 0 1em
   cursor: pointer
   border-bottom: 1px solid rgba(244,244,244,.5)
+  height: auto
   position: relative
   transition: all .3s ease-out
+
+.LiTitle
+  padding: 1em 0
+
+.InputStuck
+  font-size: 1rem
+  margin-bottom: 1em
+  transition: all .3s ease-out
+  display: flex
+  flex-direction: column
+  overflow: hidden
+
+.InputStuckInput
+  font-size: 1.2rem
+  margin-top: .5em
+  transition: all .3s ease-out
+  border-radius: .25em
+  border: 1px solid library.$color_main-grey
+  padding: .25em .5em
+  color: white
+  background-color: rgba(23, 20, 20, .7)
+  &:focus
+    background-color: library.$color_honeydew
+    color: library.$color_main-grey
+    outline: none
+
+.InputStuckLabel
+  margin-top: 1em
+
+.StuckEntryButtons
+  display: flex
+  width: 100%
+  flex-direction: row
+  justify-content: space-between
+  margin-top: .5em
+
+.ForgottenButton
+  padding: 0
+  color: library.$color_honeydew
+  text-decoration: underline
+
+.EntryOrRegisterButton
+  background-color: library.$color_honeydew
+  padding: .5em 1em
+  border-radius: .25em
+  border: 1px solid library.$color_celadonblue
 
 .liElementsClosed
   margin-left: -100%
