@@ -67,15 +67,15 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
 
         const lastLiElement = userContainerRef.current.children[userEntryState] as HTMLOListElement
         const lastDivElement = lastLiElement.lastElementChild as HTMLDivElement
-        const lastSpanElement = lastLiElement.firstElementChild as HTMLSpanElement
+        const lastClickElement = lastLiElement.firstElementChild as HTMLSpanElement
 
         lastLiElement.style.height = lastLiElement.getBoundingClientRect().height + 'px'
-        lastLiElement.style.height = lastSpanElement.getBoundingClientRect().height + 1 + 'px'
+        lastLiElement.style.height = lastClickElement.getBoundingClientRect().height + 1 + 'px'
 
         const li = e.target.parentNode
         const div = e.target.nextElementSibling
 
-        li.style.height = lastSpanElement.getBoundingClientRect().height + 1 + 'px'
+        li.style.height = lastClickElement.getBoundingClientRect().height + 1 + 'px'
         li.style.height = lastLiElement.getBoundingClientRect().height + 'px'
         div.style.display = 'flex'
 
@@ -84,7 +84,7 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
             lastDivElement.style.display = 'none'
             li.style.height = 'auto'
             setUserEntryState(key)
-        },300)
+        }, 300)
     }
 
     return (
@@ -123,8 +123,16 @@ const MenuTogglePanel: React.FC<MenuTogglePanelProps> = ({menuTogglePanelState, 
                         {arrayOfUserEntryPanel.map((title, key) => {
                             return (
                                 <li key={key} className={styles.HelpLine}>
-                                    <span className={styles.LiTitle} data-key={key} onClick={userEntryStateHandler}>{title}</span>
-                                    <div style={userEntryState !== key ? {display: 'none'} : {}} className={styles.InputStuck}>
+                                    <div className={styles.LiTitle} data-key={key}
+                                         onClick={userEntryStateHandler}>
+                                        {title}
+                                        <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 600 600">
+                                            <polygon points="0 0 300 600 600 0 300 244.35 0 0"/>
+                                        </svg>
+                                    </div>
+                                    <div style={userEntryState !== key ? {display: 'none'} : {}}
+                                         className={styles.InputStuck}>
                                         <label className={styles.InputStuckLabel} htmlFor="Email">Почта</label>
                                         <input className={styles.InputStuckInput} type="email"/>
                                         <label className={styles.InputStuckLabel} htmlFor="Email">Пароль</label>

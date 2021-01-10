@@ -3,6 +3,7 @@
 .MenuTogglePanel
   font-size: 1rem
   position: fixed
+  overflow: auto
   background-color: library.$color_imperial-red
   color: white
   z-index: 100
@@ -103,7 +104,27 @@
   transition: all .3s ease-out
 
 .LiTitle
+  display: flex
+  flex-direction: row
   padding: 1em 0
+  transition: color .3s ease-out
+  &:hover
+    color: rgba(240, 200, 200, .84)
+  &:hover > svg
+    fill: rgba(240, 200, 200, .84)
+
+.LiTitle > svg
+  width: .5em
+  height: .5em
+  z-index: -1
+  margin: auto 0 auto .5em
+  position: relative
+  transition: all .3s ease-out
+  transform: rotate(-90deg)
+  fill: white
+
+.Active > svg
+  transform: rotate(0)
 
 .InputStuck
   font-size: 1rem
@@ -123,7 +144,7 @@
   color: white
   background-color: rgba(23, 20, 20, .7)
   &:focus
-    background-color: library.$color_honeydew
+    background-color: white
     color: library.$color_main-grey
     outline: none
 
@@ -135,7 +156,7 @@
   width: 100%
   flex-direction: row
   justify-content: space-between
-  margin-top: .5em
+  margin-top: 1em
 
 .ForgottenButton
   padding: 0
@@ -143,8 +164,9 @@
   text-decoration: underline
 
 .EntryOrRegisterButton
-  background-color: library.$color_honeydew
-  padding: .5em 1em
+  background-color: white
+  font-size: 1rem
+  padding: .5em 2em
   border-radius: .25em
   border: 1px solid library.$color_celadonblue
 

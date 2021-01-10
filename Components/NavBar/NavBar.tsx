@@ -14,19 +14,25 @@ const NavBar: React.FC<NavBarProps> = ({menuTogglePanelState, setMenuTogglePanel
         userButton.click()
     }
 
+    const helpButtonClickHandler = () => {
+        setMenuTogglePanelState(true)
+        const helpButton = document.getElementById('helpButton')
+        helpButton.click()
+    }
+
     return (
         <nav className={styles.NavBar}>
 
             <div className={styles.LogoBox}>
                 <img className={styles.LogoImage} src={'/cdl__logo.svg'} alt={''}/>
                 <span className={styles.CompanyName}>
-                    consoledotlook
+                    cdlook
                 </span>
             </div>
 
             <div className={styles.UserBar}>
 
-                <button className={styles.Help}>
+                <button onClick={helpButtonClickHandler} className={styles.Help}>
                     Помощь
                     <div className={styles.hoverLine}>
 

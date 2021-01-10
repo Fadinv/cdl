@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = () => {
     return (
         <div className={styles.Footer}>
             <div className={styles.InfoWrapper}>
-                <p className={styles.NameProject}>consoledotlook</p>
+                <p className={styles.NameProject}>cdlook</p>
 
                 <ul className={styles.FAQ}>
                     <li className={styles.FooterTitle}>FAQ</li>
